@@ -34,7 +34,6 @@ extension ARSceneViewController: ARSCNViewDelegate{
         guard let device = MTLCreateSystemDefaultDevice(), let geometryOfNode = ARSCNPlaneGeometry(device: device) else { return nil }
         geometryOfNode.update(from: planeAnchor.geometry)
         let node = SCNNode(geometry: geometryOfNode)
-        //node.physicsBody = .static()
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.5)
         
         return node
