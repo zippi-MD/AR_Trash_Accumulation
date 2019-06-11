@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
 		D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A122AEC26000C46E75 /* AppDelegate.swift */; };
 		D41187A422AEC26000C46E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A322AEC26000C46E75 /* ViewController.swift */; };
 		D41187A722AEC26000C46E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41187A522AEC26000C46E75 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		D411879E22AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santillana-Demo-AR-Experiencia-Residuos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41187A122AEC26000C46E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D41187A322AEC26000C46E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				D41187AA22AEC26100C46E75 /* LaunchScreen.storyboard */,
 				D41187AD22AEC26100C46E75 /* Info.plist */,
 				D41187B322AEC34300C46E75 /* ARSceneViewController.swift */,
+				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
 				D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */,
