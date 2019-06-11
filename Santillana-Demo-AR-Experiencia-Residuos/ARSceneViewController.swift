@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import ARKit
 
 class ARSceneViewController: UIViewController {
 
+    @IBOutlet weak var arSceneView: ARSCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        arSceneView.delegate = self
+        
+        #if DEBUG
+        arSceneView.debugOptions = [.showFeaturePoints]
+        #endif
+        
+        let config = ARWorldTrackingConfiguration()
+        config.planeDetection = .horizontal
+        
+        arSceneView.session.run(config)
+        
+        let scene = SCNScene()
+        
+        arSceneView.scene = scene
     }
     
 
