@@ -13,6 +13,11 @@ class ARSceneViewController: UIViewController {
 
     @IBOutlet weak var arSceneView: ARSCNView!
     
+    var pickerController: HorizontalPickerViewController!
+    var pickerValues: [Any] = [1,2,3,4,5,6,7,8,9,10]
+    var pickerSingularSuffix = "Día"
+    var pickerPluralSuffix = "Días"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +35,20 @@ class ARSceneViewController: UIViewController {
         let scene = SCNScene()
         
         arSceneView.scene = scene
+        
+        setupPicker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addChild(pickerController)
+        view.addSubview(pickerController.view)
+        pickerController.didMove(toParent: self)
+    }
+    
+    func setupPicker(){
+        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
     }
     
 
