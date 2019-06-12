@@ -36,3 +36,15 @@ extension UIColor {
         
     }
 }
+
+func generateGradientLayer(colors: [CGColor], frame: CGRect, startPoint: CGPoint = CGPoint(x: 0.50, y: 1.0), endPoint: CGPoint = CGPoint(x: 0.5, y: 0.0)) -> CAGradientLayer {
+    
+    let layer = CAGradientLayer()
+    layer.colors = colors
+    layer.startPoint = startPoint
+    layer.endPoint = endPoint
+    layer.frame = frame
+    
+    return layer
+    
+}
