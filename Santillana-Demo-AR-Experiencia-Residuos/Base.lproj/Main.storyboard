@@ -45,6 +45,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V8g-d9-c1W"/>
                     </view>
+                    <connections>
+                        <outlet property="arSceneView" destination="RyY-53-HJw" id="aM1-Sa-Ym5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wd-Kz-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
