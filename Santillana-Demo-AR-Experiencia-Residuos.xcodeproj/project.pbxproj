@@ -13,6 +13,7 @@
 		D41187A922AEC26100C46E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41187A822AEC26100C46E75 /* Assets.xcassets */; };
 		D41187AC22AEC26100C46E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41187AA22AEC26100C46E75 /* LaunchScreen.storyboard */; };
 		D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187B322AEC34300C46E75 /* ARSceneViewController.swift */; };
+		D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D41187AB22AEC26100C46E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D41187AD22AEC26100C46E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41187B322AEC34300C46E75 /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
+		D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				D41187A122AEC26000C46E75 /* AppDelegate.swift */,
 				D41187A322AEC26000C46E75 /* ViewController.swift */,
+				D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */,
 				D41187A522AEC26000C46E75 /* Main.storyboard */,
 				D41187A822AEC26100C46E75 /* Assets.xcassets */,
 				D41187AA22AEC26100C46E75 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
+				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
 				D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */,
 			);
