@@ -9,18 +9,59 @@
 import UIKit
 import ARKit
 
-class ARSceneViewController: UIViewController {
+enum gameState {
+    case detectingPlanes
+}
 
+class ARSceneViewController: UIViewController {
+    
+    //MARK: Detecting planes UI and variables
+    @IBOutlet weak var detectingPlanesPanel: UIView!
+    var debugPlanes = [SCNNode]()
+    @IBOutlet weak var detectingPlanesLabel: UILabel!
+    @IBOutlet weak var detectingPlanesButton: UIButton!
+    
+    //MARK: Outlets
     @IBOutlet weak var arSceneView: ARSCNView!
     
+    //MARK: picker variables and data
     var pickerController: HorizontalPickerViewController!
     var pickerValues: [Any] = [1,2,3,4,5,6,7,8,9,10]
     var pickerSingularSuffix = "Día"
     var pickerPluralSuffix = "Días"
     
+    //MARK: Control flow variables
+    var actualState: gameState = .detectingPlanes
+    
+    //MARK: life cycle of view controller
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupAR()
+        setupPicker()
+        detectingPlanesSetupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pickerController.view.isHidden = true
+        addChild(pickerController)
+        view.addSubview(pickerController.view)
+        pickerController.didMove(toParent: self)
+    }
+    //MARK: Actions
+    @IBAction func stopTacking(_ sender: Any) {
+        let config = ARWorldTrackingConfiguration()
+        
+        self.arSceneView.session.run(config)
+    }
+    
+    //MARK: methods
+    func setupPicker(){
+        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
+    }
+    
+    private func setupAR(){
         arSceneView.delegate = self
         
         #if DEBUG
@@ -35,31 +76,16 @@ class ARSceneViewController: UIViewController {
         let scene = SCNScene()
         
         arSceneView.scene = scene
+    }
+    
+    private func detectingPlanesSetupUI(){
+        self.detectingPlanesPanel.backgroundColor = .clear
         
-        setupPicker()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.detectingPlanesLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.detectingPlanesLabel.layer.cornerRadius = 100
         
-        addChild(pickerController)
-        view.addSubview(pickerController.view)
-        pickerController.didMove(toParent: self)
+        self.detectingPlanesButton.backgroundColor = UIColor.cyan.withAlphaComponent(0.1)
+        self.detectingPlanesButton.isHidden = true
     }
-    
-    func setupPicker(){
-        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

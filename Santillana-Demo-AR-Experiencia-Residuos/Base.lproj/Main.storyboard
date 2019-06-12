@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-SC-cwm">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,26 +32,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyY-53-HJw">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyY-53-HJw">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-97-GaU">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="msz-v7-6m0">
+                                        <rect key="frame" x="0.0" y="648" width="1024" height="100"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9T-fh-nWJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="954" height="100"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-jb-fVj">
+                                                <rect key="frame" x="954" y="0.0" width="70" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="Uv9-4A-zDo"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="stopTacking:" destination="nLj-SC-cwm" eventType="touchUpInside" id="ULS-dk-d1u"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="DPQ-c3-jvc"/>
+                                            <constraint firstItem="k9T-fh-nWJ" firstAttribute="top" secondItem="msz-v7-6m0" secondAttribute="top" id="HNN-fc-uvJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="bi9-jb-fVj" secondAttribute="bottom" id="idT-Eh-REp"/>
+                                            <constraint firstItem="bi9-jb-fVj" firstAttribute="top" secondItem="msz-v7-6m0" secondAttribute="top" id="ltl-2J-wVw"/>
+                                            <constraint firstAttribute="bottom" secondItem="k9T-fh-nWJ" secondAttribute="bottom" id="rba-b6-gbU"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="msz-v7-6m0" firstAttribute="leading" secondItem="bsK-97-GaU" secondAttribute="leading" id="OxF-Zc-5IW"/>
+                                    <constraint firstAttribute="trailing" secondItem="msz-v7-6m0" secondAttribute="trailing" id="WsV-Iq-Sfl"/>
+                                    <constraint firstAttribute="bottom" secondItem="msz-v7-6m0" secondAttribute="bottom" id="ajJ-D0-bs4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RyY-53-HJw" secondAttribute="trailing" id="CwE-YV-FSa"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="top" secondItem="V8g-d9-c1W" secondAttribute="top" id="MlP-h6-8ch"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="leading" secondItem="jGf-M4-qtD" secondAttribute="leading" id="y7q-uv-sXH"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="bottom" secondItem="V8g-d9-c1W" secondAttribute="bottom" id="yMt-kY-QYY"/>
+                            <constraint firstAttribute="trailing" secondItem="bsK-97-GaU" secondAttribute="trailing" id="3eA-Vh-uua"/>
+                            <constraint firstItem="bsK-97-GaU" firstAttribute="top" secondItem="V8g-d9-c1W" secondAttribute="top" id="4QQ-6g-Tmf"/>
+                            <constraint firstItem="bsK-97-GaU" firstAttribute="leading" secondItem="jGf-M4-qtD" secondAttribute="leading" id="VVD-BU-i5r"/>
+                            <constraint firstAttribute="bottom" secondItem="bsK-97-GaU" secondAttribute="bottom" id="n9D-zT-2md"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V8g-d9-c1W"/>
                     </view>
                     <connections>
                         <outlet property="arSceneView" destination="RyY-53-HJw" id="aM1-Sa-Ym5"/>
+                        <outlet property="detectingPlanesButton" destination="bi9-jb-fVj" id="U8W-gh-ZJv"/>
+                        <outlet property="detectingPlanesLabel" destination="k9T-fh-nWJ" id="agF-Gh-d1o"/>
+                        <outlet property="detectingPlanesPanel" destination="bsK-97-GaU" id="7AQ-ir-0DU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wd-Kz-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="130"/>
+            <point key="canvasLocation" x="838.4765625" y="129.6875"/>
         </scene>
     </scenes>
 </document>
