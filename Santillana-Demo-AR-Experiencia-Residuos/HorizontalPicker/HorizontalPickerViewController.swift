@@ -30,6 +30,8 @@ class HorizontalPickerViewController: UIViewController {
         }
     }
     
+    var delegate: HorizontalPickerDelegate?
+    
     private let rotationAngle: CGFloat = 90 * (.pi/180)
     
     private let viewHeight = 150
@@ -149,6 +151,8 @@ extension HorizontalPickerViewController: UIPickerViewDelegate {
         else {
             suffixLabel.text = pluralSuffix
         }
+        
+        delegate?.pickerChangedValueTo(values[row], withSuffix: suffixLabel.text!)
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
