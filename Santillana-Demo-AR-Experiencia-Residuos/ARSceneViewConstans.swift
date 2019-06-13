@@ -11,7 +11,7 @@ import Foundation
 class ARSceneViewConstans {
     static let share = ARSceneViewConstans()
     
-    let labelPlaneDetectionFirstMessage = "Escanea tu cuarto para iniciar"
-    let labelPlaneDetectionSecondMessage = "¿Te imaginas cómo se verían juntos todos los desperdicios que generas? ¡Averigüémoslo!"
-    let labelPlaneDetectionNoteMessage = "Recuerda que puedes escanear todo tu cuarto"
+    let startScanningMessage = "Escanea tu cuarto para iniciar"
+    let finishScanningMessage = "¿Te imaginas cómo se verían juntos todos los desperdicios que generas? ¡Averigüémoslo!"
+    let minimumPlaneDetectionMessage = "Recuerda que puedes escanear todo tu cuarto"
 }

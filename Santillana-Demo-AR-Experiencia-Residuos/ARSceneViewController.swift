@@ -74,11 +74,9 @@ class ARSceneViewController: UIViewController {
             child.opacity = 0.0
         }
         
-        UIView.transition(with: detectingPlanesLabel, duration: TimeInterval(3), options: .transitionCrossDissolve, animations: {[unowned self] in
-            self.detectingPlanesLabel.text = self.contants.labelPlaneDetectionSecondMessage
-        }, completion: {[unowned self] (_) in
-            self.actualState = .retriveInfo
-        }) // change the text with transicion
+        self.detectingPlanesLabel.text = self.contants.finishScanningMessage
+        //can't see the text is so fast
+        self.actualState = .retriveInfo
         
     }
     
@@ -89,7 +87,7 @@ class ARSceneViewController: UIViewController {
         pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
     }
     
-    private func setupAR(){
+    func setupAR(){
         actualState = .detectingPlanes
         
         arSceneView.delegate = self
@@ -109,14 +107,14 @@ class ARSceneViewController: UIViewController {
     }
     
     //MARk: Observer methods for state of game
-    private func detectingPlanesSetupUI(){
+    func detectingPlanesSetupUI(){
         self.detectingPlanesPanel.backgroundColor = .clear
         
         self.detectingPlanesLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         self.detectingPlanesLabel.layer.cornerRadius = 10
-        self.detectingPlanesLabel.text = contants.labelPlaneDetectionFirstMessage
+        self.detectingPlanesLabel.text = contants.startScanningMessage
         
-        self.detectingPlaneNoteLabel.text = contants.labelPlaneDetectionNoteMessage
+        self.detectingPlaneNoteLabel.text = contants.minimumPlaneDetectionMessage
         self.detectingPlaneNoteLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         self.detectingPlaneNoteLabel.isHidden = true
         
@@ -127,7 +125,7 @@ class ARSceneViewController: UIViewController {
         //hiden the other panels
     }
     
-    private func retriveInfoSetupUI(){
+    func retriveInfoSetupUI(){
         
         //hiden the other panels
         self.detectingPlanesPanel.isHidden = true
