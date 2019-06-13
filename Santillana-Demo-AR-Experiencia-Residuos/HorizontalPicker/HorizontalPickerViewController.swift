@@ -127,6 +127,14 @@ class HorizontalPickerViewController: UIViewController {
         }
     }
     
+    //MARK: - Public Methods
+    func getActualPickerValue() -> (Any, String){
+        let value = values[picker.selectedRow(inComponent: 0)]
+        let suffix = suffixLabel.text!
+        
+        return (value, suffix)
+    }
+    
 }
 
 extension HorizontalPickerViewController: UIPickerViewDataSource {
