@@ -30,6 +30,8 @@ class HorizontalPickerViewController: UIViewController {
         }
     }
     
+    var delegate: HorizontalPickerDelegate?
+    
     private let rotationAngle: CGFloat = 90 * (.pi/180)
     
     private let viewHeight = 150
@@ -125,6 +127,14 @@ class HorizontalPickerViewController: UIViewController {
         }
     }
     
+    //MARK: - Public Methods
+    func getActualPickerValue() -> (Any, String){
+        let value = values[picker.selectedRow(inComponent: 0)]
+        let suffix = suffixLabel.text!
+        
+        return (value, suffix)
+    }
+    
 }
 
 extension HorizontalPickerViewController: UIPickerViewDataSource {
@@ -149,6 +159,8 @@ extension HorizontalPickerViewController: UIPickerViewDelegate {
         else {
             suffixLabel.text = pluralSuffix
         }
+        
+        delegate?.pickerChangedValueTo(values[row], withSuffix: suffixLabel.text!)
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
