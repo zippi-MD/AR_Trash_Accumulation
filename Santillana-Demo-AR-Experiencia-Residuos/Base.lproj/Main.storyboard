@@ -42,36 +42,60 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="msz-v7-6m0">
                                         <rect key="frame" x="0.0" y="648" width="1024" height="100"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9T-fh-nWJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="954" height="100"/>
-                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-jb-fVj">
-                                                <rect key="frame" x="954" y="0.0" width="70" height="100"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-o8-fO5">
+                                                <rect key="frame" x="0.0" y="0.0" width="924" height="100"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-TY-L98">
+                                                        <rect key="frame" x="0.0" y="10" width="924" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="zD1-98-1mC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="Uv9-4A-zDo"/>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="leading" secondItem="cyl-o8-fO5" secondAttribute="leading" id="CAa-Ln-GNH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gBc-TY-L98" secondAttribute="trailing" id="CIB-jw-SXZ"/>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="centerX" secondItem="cyl-o8-fO5" secondAttribute="centerX" id="lDA-od-7Nz"/>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="centerY" secondItem="cyl-o8-fO5" secondAttribute="centerY" id="pEq-VR-rcS"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZa-xY-Kcv">
+                                                <rect key="frame" x="924" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="cdf-jo-cyB"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ukJ-jU-HYr"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="stopTacking:" destination="nLj-SC-cwm" eventType="touchUpInside" id="ULS-dk-d1u"/>
+                                                    <action selector="stopPlaneDetection:" destination="nLj-SC-cwm" eventType="touchUpOutside" id="MGI-Cz-lCr"/>
+                                                    <action selector="stopPlaneDetection:" destination="nLj-SC-cwm" eventType="touchUpInside" id="uhS-gS-kJy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="DPQ-c3-jvc"/>
-                                            <constraint firstItem="k9T-fh-nWJ" firstAttribute="top" secondItem="msz-v7-6m0" secondAttribute="top" id="HNN-fc-uvJ"/>
-                                            <constraint firstAttribute="bottom" secondItem="bi9-jb-fVj" secondAttribute="bottom" id="idT-Eh-REp"/>
-                                            <constraint firstItem="bi9-jb-fVj" firstAttribute="top" secondItem="msz-v7-6m0" secondAttribute="top" id="ltl-2J-wVw"/>
-                                            <constraint firstAttribute="bottom" secondItem="k9T-fh-nWJ" secondAttribute="bottom" id="rba-b6-gbU"/>
+                                            <constraint firstAttribute="height" constant="100" id="zmg-2y-PHX"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4V-8m-TXR">
+                                        <rect key="frame" x="604" y="20" width="400" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2lF-Pm-WaG"/>
+                                            <constraint firstAttribute="width" constant="400" id="7G3-a9-n89"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="msz-v7-6m0" firstAttribute="leading" secondItem="bsK-97-GaU" secondAttribute="leading" id="OxF-Zc-5IW"/>
-                                    <constraint firstAttribute="trailing" secondItem="msz-v7-6m0" secondAttribute="trailing" id="WsV-Iq-Sfl"/>
-                                    <constraint firstAttribute="bottom" secondItem="msz-v7-6m0" secondAttribute="bottom" id="ajJ-D0-bs4"/>
+                                    <constraint firstAttribute="trailing" secondItem="y4V-8m-TXR" secondAttribute="trailing" constant="20" id="4cY-zo-Zpp"/>
+                                    <constraint firstItem="y4V-8m-TXR" firstAttribute="top" secondItem="bsK-97-GaU" secondAttribute="top" constant="20" id="8yT-7N-Yr1"/>
+                                    <constraint firstAttribute="trailing" secondItem="msz-v7-6m0" secondAttribute="trailing" id="CAq-Vc-cKf"/>
+                                    <constraint firstItem="msz-v7-6m0" firstAttribute="leading" secondItem="bsK-97-GaU" secondAttribute="leading" id="FBO-Jb-Y4c"/>
+                                    <constraint firstAttribute="bottom" secondItem="msz-v7-6m0" secondAttribute="bottom" id="aXg-yR-MOd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -86,8 +110,9 @@
                     </view>
                     <connections>
                         <outlet property="arSceneView" destination="RyY-53-HJw" id="aM1-Sa-Ym5"/>
-                        <outlet property="detectingPlanesButton" destination="bi9-jb-fVj" id="U8W-gh-ZJv"/>
-                        <outlet property="detectingPlanesLabel" destination="k9T-fh-nWJ" id="agF-Gh-d1o"/>
+                        <outlet property="detectingPlaneNoteLabel" destination="y4V-8m-TXR" id="i0M-Xw-APu"/>
+                        <outlet property="detectingPlanesButton" destination="cZa-xY-Kcv" id="PZ1-mM-LEU"/>
+                        <outlet property="detectingPlanesLabel" destination="gBc-TY-L98" id="6UD-Sr-7hD"/>
                         <outlet property="detectingPlanesPanel" destination="bsK-97-GaU" id="7AQ-ir-0DU"/>
                     </connections>
                 </viewController>

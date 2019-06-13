@@ -33,7 +33,7 @@ extension ARSceneViewController: ARSCNViewDelegate{
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         switch self.actualState {
-        case .detectingPlanes:
+        case .detectingPlanes?:
             detectingPlanes()
         default:
             break;
@@ -56,10 +56,15 @@ extension ARSceneViewController: ARSCNViewDelegate{
     }
     
     private func detectingPlanes(){
-        for node in self.debugPlanes{
-            let boundingBox = node.boundingBox.max
-            if boundingBox.x > 1 {//one metter
-                self.detectingPlanesButton.isHidden = false
+        DispatchQueue.main.async {[unowned self] in
+            for node in self.debugPlanes{
+                let boundingBox = node.boundingBox.max
+                if boundingBox.x > 1 {//one metter
+                    
+                    self.detectingPlaneNoteLabel.isHidden = false
+                    
+                    self.detectingPlanesButton.isHidden = false
+                }
             }
         }
     }

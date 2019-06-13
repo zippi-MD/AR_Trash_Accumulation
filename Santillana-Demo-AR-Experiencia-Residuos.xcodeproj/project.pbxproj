@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
+		21D8D10F22B2AC0200F0A25C /* ARSceneViewConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D8D10E22B2AC0200F0A25C /* ARSceneViewConstans.swift */; };
 		D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A122AEC26000C46E75 /* AppDelegate.swift */; };
 		D41187A422AEC26000C46E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A322AEC26000C46E75 /* ViewController.swift */; };
 		D41187A722AEC26000C46E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41187A522AEC26000C46E75 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		21D8D10E22B2AC0200F0A25C /* ARSceneViewConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewConstans.swift; sourceTree = "<group>"; };
 		D411879E22AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santillana-Demo-AR-Experiencia-Residuos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41187A122AEC26000C46E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D41187A322AEC26000C46E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				D41187AD22AEC26100C46E75 /* Info.plist */,
 				D41187B322AEC34300C46E75 /* ARSceneViewController.swift */,
 				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
+				21D8D10E22B2AC0200F0A25C /* ARSceneViewConstans.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
+				21D8D10F22B2AC0200F0A25C /* ARSceneViewConstans.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
 				D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */,
 			);
