@@ -14,6 +14,7 @@ extension ARSceneViewController: ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor, let planeNode = createPlaneNode(planeAnchor: planeAnchor) else { return }
         node.addChildNode(planeNode)
+        self.debugPlanes.append(node)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -29,7 +30,16 @@ extension ARSceneViewController: ARSCNViewDelegate{
             child.removeFromParentNode()
         }
     }
-    //MARK: functions
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        switch self.actualState {
+        case .detectingPlanes?:
+            detectingPlanes()
+        default:
+            break;
+        }
+    }
+    //MARK: methods
     private func createPlaneNode(planeAnchor: ARPlaneAnchor) -> SCNNode?{
         guard let device = MTLCreateSystemDefaultDevice(), let geometryOfNode = ARSCNPlaneGeometry(device: device) else { return nil }
         geometryOfNode.update(from: planeAnchor.geometry)
@@ -43,5 +53,19 @@ extension ARSceneViewController: ARSCNViewDelegate{
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.5)
         
         return node
+    }
+    
+    private func detectingPlanes(){
+        DispatchQueue.main.async {[unowned self] in
+            for node in self.debugPlanes{
+                let boundingBox = node.boundingBox.max
+                if boundingBox.x > 1 {//one metter
+                    
+                    self.detectingPlaneNoteLabel.isHidden = false
+                    
+                    self.detectingPlanesButton.isHidden = false
+                }
+            }
+        }
     }
 }

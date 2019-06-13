@@ -9,17 +9,86 @@
 import UIKit
 import ARKit
 
-class ARSceneViewController: UIViewController {
+enum appState {
+    case detectingPlanes
+    case retriveInfo
+}
 
+class ARSceneViewController: UIViewController {
+    
+    //MARK: Constans
+    let contants = ARSceneViewConstans.share
+    //MARK: Detecting planes UI and variables
+    @IBOutlet weak var detectingPlanesPanel: UIView!
+    var debugPlanes = [SCNNode]()
+    @IBOutlet weak var detectingPlanesLabel: UILabel!
+    @IBOutlet weak var detectingPlanesButton: UIButton!
+    @IBOutlet weak var detectingPlaneNoteLabel: UILabel!
+    
+    //MARK: Outlets
     @IBOutlet weak var arSceneView: ARSCNView!
     
+    //MARK: picker variables and data
     var pickerController: HorizontalPickerViewController!
     var pickerValues: [Any] = [1,2,3,4,5,6,7,8,9,10]
     var pickerSingularSuffix = "Día"
     var pickerPluralSuffix = "Días"
     
+    //MARK: Control flow variables
+    var actualState: appState!{
+        willSet(newValue){
+            switch newValue {
+            case .detectingPlanes?:
+                self.detectingPlanesSetupUI()
+            case .retriveInfo?:
+                self.retriveInfoSetupUI()
+            default:
+                break
+            }
+        }
+    }
+    
+    //MARK: life cycle of view controller
     override func viewDidLoad() {
         super.viewDidLoad()
+        actualState = .detectingPlanes
+        setupAR()
+        setupPicker()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pickerController.view.isHidden = true
+        addChild(pickerController)
+        view.addSubview(pickerController.view)
+        pickerController.didMove(toParent: self)
+    }
+    //MARK: Actions
+    
+    @IBAction func stopPlaneDetection(_ sender: UIButton) {
+        let config = ARWorldTrackingConfiguration()
+        
+        self.arSceneView.session.run(config)
+        
+        for child in debugPlanes{ //clear the debug planes
+            child.opacity = 0.0
+        }
+        
+        self.detectingPlanesLabel.text = self.contants.finishScanningMessage
+        //can't see the text is so fast
+        self.actualState = .retriveInfo
+        
+    }
+    
+    //MARK: Preferences
+    
+    //MARK: methods
+    func setupPicker(){
+        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
+    }
+    
+    func setupAR(){
+        actualState = .detectingPlanes
         
         arSceneView.delegate = self
         
@@ -35,31 +104,30 @@ class ARSceneViewController: UIViewController {
         let scene = SCNScene()
         
         arSceneView.scene = scene
+    }
+    
+    //MARk: Observer methods for state of game
+    func detectingPlanesSetupUI(){
+        self.detectingPlanesPanel.backgroundColor = .clear
         
-        setupPicker()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        self.detectingPlanesLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.detectingPlanesLabel.layer.cornerRadius = 10
+        self.detectingPlanesLabel.text = contants.startScanningMessage
         
-        addChild(pickerController)
-        view.addSubview(pickerController.view)
-        pickerController.didMove(toParent: self)
+        self.detectingPlaneNoteLabel.text = contants.minimumPlaneDetectionMessage
+        self.detectingPlaneNoteLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        self.detectingPlaneNoteLabel.isHidden = true
+        
+        self.detectingPlanesButton.backgroundColor = UIColor.cyan.withAlphaComponent(0.1)
+        self.detectingPlanesButton.layer.cornerRadius = 10
+        self.detectingPlanesButton.isHidden = true
+        
+        //hiden the other panels
     }
     
-    func setupPicker(){
-        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
+    func retriveInfoSetupUI(){
+        
+        //hiden the other panels
+        self.detectingPlanesPanel.isHidden = true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

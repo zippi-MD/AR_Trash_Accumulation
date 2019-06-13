@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-SC-cwm">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,26 +32,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyY-53-HJw">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyY-53-HJw">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-97-GaU">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="msz-v7-6m0">
+                                        <rect key="frame" x="0.0" y="648" width="1024" height="100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyl-o8-fO5">
+                                                <rect key="frame" x="0.0" y="0.0" width="924" height="100"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-TY-L98">
+                                                        <rect key="frame" x="0.0" y="10" width="924" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="zD1-98-1mC"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="leading" secondItem="cyl-o8-fO5" secondAttribute="leading" id="CAa-Ln-GNH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="gBc-TY-L98" secondAttribute="trailing" id="CIB-jw-SXZ"/>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="centerX" secondItem="cyl-o8-fO5" secondAttribute="centerX" id="lDA-od-7Nz"/>
+                                                    <constraint firstItem="gBc-TY-L98" firstAttribute="centerY" secondItem="cyl-o8-fO5" secondAttribute="centerY" id="pEq-VR-rcS"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZa-xY-Kcv">
+                                                <rect key="frame" x="924" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="cdf-jo-cyB"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ukJ-jU-HYr"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="stopPlaneDetection:" destination="nLj-SC-cwm" eventType="touchUpOutside" id="MGI-Cz-lCr"/>
+                                                    <action selector="stopPlaneDetection:" destination="nLj-SC-cwm" eventType="touchUpInside" id="uhS-gS-kJy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="zmg-2y-PHX"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4V-8m-TXR">
+                                        <rect key="frame" x="604" y="20" width="400" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2lF-Pm-WaG"/>
+                                            <constraint firstAttribute="width" constant="400" id="7G3-a9-n89"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="y4V-8m-TXR" secondAttribute="trailing" constant="20" id="4cY-zo-Zpp"/>
+                                    <constraint firstItem="y4V-8m-TXR" firstAttribute="top" secondItem="bsK-97-GaU" secondAttribute="top" constant="20" id="8yT-7N-Yr1"/>
+                                    <constraint firstAttribute="trailing" secondItem="msz-v7-6m0" secondAttribute="trailing" id="CAq-Vc-cKf"/>
+                                    <constraint firstItem="msz-v7-6m0" firstAttribute="leading" secondItem="bsK-97-GaU" secondAttribute="leading" id="FBO-Jb-Y4c"/>
+                                    <constraint firstAttribute="bottom" secondItem="msz-v7-6m0" secondAttribute="bottom" id="aXg-yR-MOd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="RyY-53-HJw" secondAttribute="trailing" id="CwE-YV-FSa"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="top" secondItem="V8g-d9-c1W" secondAttribute="top" id="MlP-h6-8ch"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="leading" secondItem="jGf-M4-qtD" secondAttribute="leading" id="y7q-uv-sXH"/>
-                            <constraint firstItem="RyY-53-HJw" firstAttribute="bottom" secondItem="V8g-d9-c1W" secondAttribute="bottom" id="yMt-kY-QYY"/>
+                            <constraint firstAttribute="trailing" secondItem="bsK-97-GaU" secondAttribute="trailing" id="3eA-Vh-uua"/>
+                            <constraint firstItem="bsK-97-GaU" firstAttribute="top" secondItem="V8g-d9-c1W" secondAttribute="top" id="4QQ-6g-Tmf"/>
+                            <constraint firstItem="bsK-97-GaU" firstAttribute="leading" secondItem="jGf-M4-qtD" secondAttribute="leading" id="VVD-BU-i5r"/>
+                            <constraint firstAttribute="bottom" secondItem="bsK-97-GaU" secondAttribute="bottom" id="n9D-zT-2md"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V8g-d9-c1W"/>
                     </view>
                     <connections>
                         <outlet property="arSceneView" destination="RyY-53-HJw" id="aM1-Sa-Ym5"/>
+                        <outlet property="detectingPlaneNoteLabel" destination="y4V-8m-TXR" id="i0M-Xw-APu"/>
+                        <outlet property="detectingPlanesButton" destination="cZa-xY-Kcv" id="PZ1-mM-LEU"/>
+                        <outlet property="detectingPlanesLabel" destination="gBc-TY-L98" id="6UD-Sr-7hD"/>
+                        <outlet property="detectingPlanesPanel" destination="bsK-97-GaU" id="7AQ-ir-0DU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Wd-Kz-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="130"/>
+            <point key="canvasLocation" x="838.4765625" y="129.6875"/>
         </scene>
     </scenes>
 </document>
