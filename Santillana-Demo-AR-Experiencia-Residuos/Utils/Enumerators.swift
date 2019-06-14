@@ -11,3 +11,10 @@ import Foundation
 enum Orientations {
     case vertical, horizontal
 }
+
+enum appState {
+    case detectingPlanes
+    case retriveInfo
+}
+
+
