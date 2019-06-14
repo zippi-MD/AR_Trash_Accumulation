@@ -38,7 +38,6 @@ class GradientLabelViewCotroller: UIViewController {
     
     override func viewDidLoad() {
         view = UIView(frame: CGRect(x: 0, y: 0, width: labelWidth, height: labelHeight))
-        view.backgroundColor = .red
         applyGradient()
         setupLabel()
         applyMask()
