@@ -25,19 +25,23 @@ class ARSceneViewController: UIViewController {
     var pickerPluralSuffix = "Días"
     
     //MARK: Control flow variables
-    var actualState: appState!{
+    var actualState: AppState!{
         willSet {
             switch newValue {
             case .detectingPlanes?:
                 self.detectingPlanesSetupUI()
             case .retriveInfo?:
                 self.retriveInfoSetupUI()
+            case .displayTrash?:
+                self.displayTrashSetupUI()
             default:
                 break
             }
         }
     }
     var debugPlanes = [SCNNode]()
+    var timeInformation: TimeInformation?
+    var trashInformation: TrashInformation?
     
     //MARK: life cycle of view controller
     override func viewDidLoad() {
@@ -56,7 +60,12 @@ class ARSceneViewController: UIViewController {
     }
     //MARK: Actions
     
-    @IBAction func stopPlaneDetection(_ sender: UIButton) {
+    func setTrashInformation(){
+        //logic to get the total trash
+        actualState = .displayTrash
+    }
+    
+    func stopPlaneDetection() {
         let config = ARWorldTrackingConfiguration()
         
         self.arSceneView.session.run(config)
@@ -100,6 +109,10 @@ class ARSceneViewController: UIViewController {
     }
     
     func retriveInfoSetupUI(){
+        
+    }
+    
+    func displayTrashSetupUI(){
         
     }
 }
