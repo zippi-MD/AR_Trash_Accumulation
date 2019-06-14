@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
+		21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258C22B4219B004DFA36 /* TimeInformation.swift */; };
+		21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258E22B4265C004DFA36 /* TrashInformation.swift */; };
 		695F401622B1B2E2009E277E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 695F401522B1B2E2009E277E /* art.scnassets */; };
 		D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A122AEC26000C46E75 /* AppDelegate.swift */; };
 		D41187A422AEC26000C46E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A322AEC26000C46E75 /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		21FE258C22B4219B004DFA36 /* TimeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInformation.swift; sourceTree = "<group>"; };
+		21FE258E22B4265C004DFA36 /* TrashInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashInformation.swift; sourceTree = "<group>"; };
 		695F401522B1B2E2009E277E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		D411879E22AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santillana-Demo-AR-Experiencia-Residuos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41187A122AEC26000C46E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				D41187B322AEC34300C46E75 /* ARSceneViewController.swift */,
 				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
 				D4EAF91622B411F00019A3B0 /* ARSceneViewConstans.swift */,
+				21FE258C22B4219B004DFA36 /* TimeInformation.swift */,
+				21FE258E22B4265C004DFA36 /* TrashInformation.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
 			sourceTree = "<group>";
@@ -221,7 +227,9 @@
 				D4EAF91122B411870019A3B0 /* GradientLabelViewController.swift in Sources */,
 				D4E7777122B181330038EF14 /* Colors.swift in Sources */,
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
+				21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */,
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
+				21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */,
 				D4EAF91322B411AB0019A3B0 /* Enumerators.swift in Sources */,
 				D4EAF91722B411F00019A3B0 /* ARSceneViewConstans.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,

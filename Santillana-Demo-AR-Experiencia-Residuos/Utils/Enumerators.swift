@@ -12,9 +12,14 @@ enum Orientations {
     case vertical, horizontal
 }
 
-enum appState {
+enum AppState {
     case detectingPlanes
     case retriveInfo
+    case displayTrash
 }
 
-
+enum Time: Int {
+    case day = 1
+    case month = 30
+    case year = 365
+}

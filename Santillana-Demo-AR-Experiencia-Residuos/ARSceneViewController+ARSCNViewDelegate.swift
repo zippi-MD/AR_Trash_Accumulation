@@ -60,12 +60,11 @@ extension ARSceneViewController: ARSCNViewDelegate{
             for node in self.debugPlanes{
                 let boundingBox = node.boundingBox.max
                 if boundingBox.x > 1 {
-                    
-                    self.detectingPlaneNoteLabel.isHidden = false
-                    
-                    self.detectingPlanesButton.isHidden = false
+                    //show the button for select plane
                 }
             }
         }
     }
+    
+    
 }
