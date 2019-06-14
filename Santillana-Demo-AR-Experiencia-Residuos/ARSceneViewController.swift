@@ -13,13 +13,7 @@ class ARSceneViewController: UIViewController {
     
     //MARK: Constans
     let contants = ARSceneViewConstans.share
-    
-    //MARK: Detecting planes UI and variables
-    @IBOutlet weak var detectingPlanesPanel: UIView!
-    var debugPlanes = [SCNNode]()
-    @IBOutlet weak var detectingPlanesLabel: UILabel!
-    @IBOutlet weak var detectingPlanesButton: UIButton!
-    @IBOutlet weak var detectingPlaneNoteLabel: UILabel!
+
     
     //MARK: Outlets
     @IBOutlet weak var arSceneView: ARSCNView!
@@ -31,18 +25,23 @@ class ARSceneViewController: UIViewController {
     var pickerPluralSuffix = "Días"
     
     //MARK: Control flow variables
-    var actualState: appState!{
+    var actualState: AppState!{
         willSet {
             switch newValue {
             case .detectingPlanes?:
                 self.detectingPlanesSetupUI()
             case .retriveInfo?:
                 self.retriveInfoSetupUI()
+            case .displayTrash?:
+                self.displayTrashSetupUI()
             default:
                 break
             }
         }
     }
+    var debugPlanes = [SCNNode]()
+    var timeInformation: TimeInformation?
+    var trashInformation: TrashInformation?
     
     //MARK: life cycle of view controller
     override func viewDidLoad() {
@@ -61,7 +60,12 @@ class ARSceneViewController: UIViewController {
     }
     //MARK: Actions
     
-    @IBAction func stopPlaneDetection(_ sender: UIButton) {
+    func setTrashInformation(){
+        //logic to get the total trash
+        actualState = .displayTrash
+    }
+    
+    func stopPlaneDetection() {
         let config = ARWorldTrackingConfiguration()
         
         self.arSceneView.session.run(config)
@@ -69,8 +73,6 @@ class ARSceneViewController: UIViewController {
         for child in debugPlanes{
             child.opacity = 0.0
         }
-        
-        self.detectingPlanesLabel.text = self.contants.finishScanningMessage
         self.actualState = .retriveInfo
         
     }
@@ -103,23 +105,14 @@ class ARSceneViewController: UIViewController {
     
     //MARk: Observer methods for state of game
     func detectingPlanesSetupUI(){
-        self.detectingPlanesPanel.backgroundColor = .clear
-        
-        self.detectingPlanesLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        self.detectingPlanesLabel.layer.cornerRadius = 10
-        self.detectingPlanesLabel.text = contants.startScanningMessage
-        
-        self.detectingPlaneNoteLabel.text = contants.minimumPlaneDetectionMessage
-        self.detectingPlaneNoteLabel.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        self.detectingPlaneNoteLabel.isHidden = true
-        
-        self.detectingPlanesButton.backgroundColor = UIColor.cyan.withAlphaComponent(0.1)
-        self.detectingPlanesButton.layer.cornerRadius = 10
-        self.detectingPlanesButton.isHidden = true
         
     }
     
     func retriveInfoSetupUI(){
-        self.detectingPlanesPanel.isHidden = true
+        
+    }
+    
+    func displayTrashSetupUI(){
+        
     }
 }
