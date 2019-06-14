@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
+		21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258C22B4219B004DFA36 /* TimeInformation.swift */; };
+		21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258E22B4265C004DFA36 /* TrashInformation.swift */; };
 		695F401622B1B2E2009E277E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 695F401522B1B2E2009E277E /* art.scnassets */; };
 		69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE862B22B41DB900B47527 /* BoundingFunction.swift */; };
 		D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A122AEC26000C46E75 /* AppDelegate.swift */; };
@@ -18,6 +20,8 @@
 		D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187B322AEC34300C46E75 /* ARSceneViewController.swift */; };
 		D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */; };
 		D493F85B22B33A4600AEBB43 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */; };
+		D4C45EEC22B42A88001F5DAD /* AlertMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */; };
 		D4E7777122B181330038EF14 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777022B181330038EF14 /* Colors.swift */; };
 		D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777322B1DB330038EF14 /* HorizontalPickerDelegate.swift */; };
 		D4EAF91122B411870019A3B0 /* GradientLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EAF91022B411870019A3B0 /* GradientLabelViewController.swift */; };
@@ -28,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		21FE258C22B4219B004DFA36 /* TimeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInformation.swift; sourceTree = "<group>"; };
+		21FE258E22B4265C004DFA36 /* TrashInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashInformation.swift; sourceTree = "<group>"; };
 		695F401522B1B2E2009E277E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		69FE862B22B41DB900B47527 /* BoundingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingFunction.swift; sourceTree = "<group>"; };
 		D411879E22AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santillana-Demo-AR-Experiencia-Residuos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +45,8 @@
 		D41187AD22AEC26100C46E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41187B322AEC34300C46E75 /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
+		D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLabelViewController.swift; sourceTree = "<group>"; };
+		D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageViewController.swift; sourceTree = "<group>"; };
 		D4E7777022B181330038EF14 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D4E7777322B1DB330038EF14 /* HorizontalPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerDelegate.swift; sourceTree = "<group>"; };
 		D4EAF91022B411870019A3B0 /* GradientLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientLabelViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 		D41187A022AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos */ = {
 			isa = PBXGroup;
 			children = (
+				D4C45EED22B42A8D001F5DAD /* AlertMessage */,
+				D4C45EE822B41D4A001F5DAD /* MessageLabel */,
 				D4EAF90F22B411870019A3B0 /* GradientButtons */,
 				D4E7777222B1DB140038EF14 /* HorizontalPicker */,
 				D4E7776F22B181200038EF14 /* Utils */,
@@ -90,8 +100,26 @@
 				D41187B322AEC34300C46E75 /* ARSceneViewController.swift */,
 				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
 				D4EAF91622B411F00019A3B0 /* ARSceneViewConstans.swift */,
+				21FE258C22B4219B004DFA36 /* TimeInformation.swift */,
+				21FE258E22B4265C004DFA36 /* TrashInformation.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
+			sourceTree = "<group>";
+		};
+		D4C45EE822B41D4A001F5DAD /* MessageLabel */ = {
+			isa = PBXGroup;
+			children = (
+				D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */,
+			);
+			path = MessageLabel;
+			sourceTree = "<group>";
+		};
+		D4C45EED22B42A8D001F5DAD /* AlertMessage */ = {
+			isa = PBXGroup;
+			children = (
+				D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */,
+			);
+			path = AlertMessage;
 			sourceTree = "<group>";
 		};
 		D4E7776F22B181200038EF14 /* Utils */ = {
@@ -199,13 +227,17 @@
 				69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */,
 				D493F85B22B33A4600AEBB43 /* (null) in Sources */,
 				D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */,
+				D4C45EEC22B42A88001F5DAD /* AlertMessageViewController.swift in Sources */,
 				D4EAF91122B411870019A3B0 /* GradientLabelViewController.swift in Sources */,
 				D4E7777122B181330038EF14 /* Colors.swift in Sources */,
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
+				21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */,
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
+				21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */,
 				D4EAF91322B411AB0019A3B0 /* Enumerators.swift in Sources */,
 				D4EAF91722B411F00019A3B0 /* ARSceneViewConstans.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
+				D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */,
 				D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
