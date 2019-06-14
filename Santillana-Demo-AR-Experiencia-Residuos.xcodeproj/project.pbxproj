@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
 		695F401622B1B2E2009E277E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 695F401522B1B2E2009E277E /* art.scnassets */; };
+		69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE862B22B41DB900B47527 /* BoundingFunction.swift */; };
 		D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A122AEC26000C46E75 /* AppDelegate.swift */; };
 		D41187A422AEC26000C46E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187A322AEC26000C46E75 /* ViewController.swift */; };
 		D41187A722AEC26000C46E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41187A522AEC26000C46E75 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		695F401522B1B2E2009E277E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		69FE862B22B41DB900B47527 /* BoundingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingFunction.swift; sourceTree = "<group>"; };
 		D411879E22AEC26000C46E75 /* Santillana-Demo-AR-Experiencia-Residuos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Santillana-Demo-AR-Experiencia-Residuos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D41187A122AEC26000C46E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D41187A322AEC26000C46E75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				D4EAF91222B411AB0019A3B0 /* Enumerators.swift */,
 				D4E7777022B181330038EF14 /* Colors.swift */,
 				D4EAF91422B411CA0019A3B0 /* Strings.swift */,
+				69FE862B22B41DB900B47527 /* BoundingFunction.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
 				D4EAF91522B411CA0019A3B0 /* Strings.swift in Sources */,
+				69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */,
 				D493F85B22B33A4600AEBB43 /* (null) in Sources */,
 				D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */,
 				D4EAF91122B411870019A3B0 /* GradientLabelViewController.swift in Sources */,
@@ -349,7 +353,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27MUBRMHKJ;
+				DEVELOPMENT_TEAM = LG4XTB94FF;
 				INFOPLIST_FILE = "Santillana-Demo-AR-Experiencia-Residuos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -367,7 +371,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27MUBRMHKJ;
+				DEVELOPMENT_TEAM = LG4XTB94FF;
 				INFOPLIST_FILE = "Santillana-Demo-AR-Experiencia-Residuos/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

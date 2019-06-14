@@ -45,7 +45,10 @@ extension ARSceneViewController: ARSCNViewDelegate{
         geometryOfNode.update(from: planeAnchor.geometry)
         let node = SCNNode(geometry: geometryOfNode)
         //create a physics for the interaction with more nodes
-        let planeShape = SCNCylinder(radius: CGFloat(planeAnchor.extent.x), height: 0.0001)
+        
+        //let planeShape = SCNCylinder(radius: CGFloat(planeAnchor.extent.x), height: 0.0001)
+        let planeShape = SCNCylinder(radius: CGFloat(higherBounding(node.boundingBox.max)), height: 0.0001)
+        
         let boxBodyShape = SCNPhysicsShape(geometry: planeShape, options: nil)
         let physicsBody = SCNPhysicsBody(type: .static, shape: boxBodyShape)
         node.physicsBody = physicsBody
@@ -59,7 +62,7 @@ extension ARSceneViewController: ARSCNViewDelegate{
         DispatchQueue.main.async {[unowned self] in
             for node in self.debugPlanes{
                 let boundingBox = node.boundingBox.max
-                if boundingBox.x > 1 {
+                if AreaBounding(higherBounding(boundingBox)) > 1 {
                     
                     self.detectingPlaneNoteLabel.isHidden = false
                     
