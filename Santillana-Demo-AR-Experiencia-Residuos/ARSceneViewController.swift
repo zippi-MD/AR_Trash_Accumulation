@@ -9,15 +9,11 @@
 import UIKit
 import ARKit
 
-enum appState {
-    case detectingPlanes
-    case retriveInfo
-}
-
 class ARSceneViewController: UIViewController {
     
     //MARK: Constans
     let contants = ARSceneViewConstans.share
+    
     //MARK: Detecting planes UI and variables
     @IBOutlet weak var detectingPlanesPanel: UIView!
     var debugPlanes = [SCNNode]()
@@ -30,13 +26,13 @@ class ARSceneViewController: UIViewController {
     
     //MARK: picker variables and data
     var pickerController: HorizontalPickerViewController!
-    var pickerValues: [Any] = [1,2,3,4,5,6,7,8,9,10]
+    var pickerValues = [1,2,3,4,5,6,7,8,9,10]
     var pickerSingularSuffix = "Día"
     var pickerPluralSuffix = "Días"
     
     //MARK: Control flow variables
     var actualState: appState!{
-        willSet(newValue){
+        willSet {
             switch newValue {
             case .detectingPlanes?:
                 self.detectingPlanesSetupUI()
@@ -70,12 +66,11 @@ class ARSceneViewController: UIViewController {
         
         self.arSceneView.session.run(config)
         
-        for child in debugPlanes{ //clear the debug planes
+        for child in debugPlanes{
             child.opacity = 0.0
         }
         
         self.detectingPlanesLabel.text = self.contants.finishScanningMessage
-        //can't see the text is so fast
         self.actualState = .retriveInfo
         
     }
@@ -122,12 +117,9 @@ class ARSceneViewController: UIViewController {
         self.detectingPlanesButton.layer.cornerRadius = 10
         self.detectingPlanesButton.isHidden = true
         
-        //hiden the other panels
     }
     
     func retriveInfoSetupUI(){
-        
-        //hiden the other panels
         self.detectingPlanesPanel.isHidden = true
     }
 }
