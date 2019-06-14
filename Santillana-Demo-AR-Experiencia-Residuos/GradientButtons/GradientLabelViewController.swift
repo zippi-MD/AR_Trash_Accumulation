@@ -21,8 +21,12 @@ class GradientLabelViewCotroller: UIViewController {
     
     private let gradientColors: [CGColor]!
     
-    init(text: String, gradientColors: [CGColor]){
+    private let gradientOrientation: Orientations!
+    
+    init(text: String, gradientColors: [CGColor], gradientOrientation orientation: Orientations = .horizontal){
+        gradientOrientation = orientation
         self.gradientColors = gradientColors
+        
         labelText = text
         labelWidth = labelText.withWithGivenHeight(labelHeight, font: labelFont)
         super.init(nibName: nil, bundle: nil)
@@ -41,7 +45,15 @@ class GradientLabelViewCotroller: UIViewController {
     }
     
     private func applyGradient(){
-        let gradient = generateGradientLayer(colors: gradientColors, frame: view.frame)
+        let gradient: CAGradientLayer
+        
+        switch gradientOrientation! {
+        case .horizontal:
+            gradient = generateGradientLayer(colors: gradientColors, frame: view.frame, startPoint: CGPoint(x: 0, y: 0.5), endPoint: CGPoint(x: 1, y: 0.5))
+        case .vertical:
+            gradient = generateGradientLayer(colors: gradientColors, frame: view.frame)
+        }
+        
         view.layer.addSublayer(gradient)
     }
     

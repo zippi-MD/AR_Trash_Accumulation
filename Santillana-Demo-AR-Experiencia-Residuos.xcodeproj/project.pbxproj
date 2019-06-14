@@ -19,6 +19,7 @@
 		D493F85422B331E200AEBB43 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D493F85322B331E200AEBB43 /* Strings.swift */; };
 		D493F85622B332A100AEBB43 /* ARSceneViewConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = D493F85522B332A100AEBB43 /* ARSceneViewConstans.swift */; };
 		D493F85822B3344900AEBB43 /* GradientLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D493F85722B3344900AEBB43 /* GradientLabelViewController.swift */; };
+		D493F85B22B33A4600AEBB43 /* Enumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = D493F85A22B33A4600AEBB43 /* Enumerators.swift */; };
 		D4E7777122B181330038EF14 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777022B181330038EF14 /* Colors.swift */; };
 		D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777322B1DB330038EF14 /* HorizontalPickerDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		D493F85322B331E200AEBB43 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D493F85522B332A100AEBB43 /* ARSceneViewConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARSceneViewConstans.swift; sourceTree = "<group>"; };
 		D493F85722B3344900AEBB43 /* GradientLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabelViewController.swift; sourceTree = "<group>"; };
+		D493F85A22B33A4600AEBB43 /* Enumerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerators.swift; sourceTree = "<group>"; };
 		D4E7777022B181330038EF14 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		D4E7777322B1DB330038EF14 /* HorizontalPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 			children = (
 				D4E7777022B181330038EF14 /* Colors.swift */,
 				D493F85322B331E200AEBB43 /* Strings.swift */,
+				D493F85A22B33A4600AEBB43 /* Enumerators.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
+				D493F85B22B33A4600AEBB43 /* Enumerators.swift in Sources */,
 				D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */,
 				D493F85422B331E200AEBB43 /* Strings.swift in Sources */,
 				D4E7777122B181330038EF14 /* Colors.swift in Sources */,
