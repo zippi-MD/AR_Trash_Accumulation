@@ -23,7 +23,7 @@ func higherBounding(_ bounds: SCNVector3) -> Float {
 }
 
 
-func AreaBounding(_ radius: Float ) -> Float{
+func areaBounding(_ radius: Float ) -> Float{
 
     return 3.1416 * (radius * radius)
 }

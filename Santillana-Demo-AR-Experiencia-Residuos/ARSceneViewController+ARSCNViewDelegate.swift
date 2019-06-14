@@ -62,11 +62,8 @@ extension ARSceneViewController: ARSCNViewDelegate{
         DispatchQueue.main.async {[unowned self] in
             for node in self.debugPlanes{
                 let boundingBox = node.boundingBox.max
-                if AreaBounding(higherBounding(boundingBox)) > 1 {
-                    
-                    self.detectingPlaneNoteLabel.isHidden = false
-                    
-                    self.detectingPlanesButton.isHidden = false
+                if areaBounding(higherBounding(boundingBox)) > 1 {
+
                 }
             }
         }
