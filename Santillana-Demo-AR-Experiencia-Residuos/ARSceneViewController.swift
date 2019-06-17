@@ -22,6 +22,13 @@ class ARSceneViewController: UIViewController {
     var pickerController: HorizontalPickerViewController!
     var pickerValues = [1,2,3,4,5,6,7,8,9,10]
     
+    var message: MessageLabelViewController!
+    var alert: AlertMessageViewController!
+    var actionButton: ActionButtonViewController!
+    
+    //MARK: Detecting Plane Variable
+    var showedAlertMessageForDetectingPlane = false
+    
     //MARK: Control flow variables
     var actualState: AppState!{
         willSet {
@@ -47,20 +54,16 @@ class ARSceneViewController: UIViewController {
         super.viewDidLoad()
         
         setupAR()
-        setupPicker()
-        actualState = .detectingPlanes
+        setupUIElements()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        addChild(pickerController)
-        view.addSubview(pickerController.view)
-        pickerController.didMove(toParent: self)
-        
-        pickerController.view.isHidden = true
+        addUIElementsToView()
+        actualState = .detectingPlanes
     }
+    
     //MARK: Actions
     
     func setTrashInformation(){
@@ -83,13 +86,55 @@ class ARSceneViewController: UIViewController {
     //MARK: Preferences
     
     //MARK: methods
+    
+    func setupUIElements(){
+        setupPicker()
+        setupMessage()
+        setupActionButton()
+    }
+    
+    func addUIElementsToView(){
+        addChild(pickerController)
+        view.addSubview(pickerController.view)
+        pickerController.didMove(toParent: self)
+        pickerController.view.isHidden = true
+        
+        addChild(message)
+        view.addSubview(message.view)
+        message.didMove(toParent: self)
+        message.view.isHidden = true
+        
+        addChild(actionButton)
+        view.addSubview(actionButton.view)
+        actionButton.didMove(toParent: self)
+        actionButton.view.isHidden = true
+    }
+    
     func setupPicker(){
         pickerController = HorizontalPickerViewController(values: pickerValues, unit: .kilo)
     }
     
+    func setupMessage(){
+        message = MessageLabelViewController(message: "Test")
+    }
+    
+    func showAlertMessage(message: String){
+        alert = AlertMessageViewController(message: message)
+        addChild(alert)
+        view.addSubview(alert.view)
+        alert.didMove(toParent: self)
+    }
+    
+    func setupActionButton(){
+        actionButton = ActionButtonViewController(text: " ")
+    }
+    
+    func showActionButtonWithMessage(_ message: String){
+        actionButton.buttonText = message
+        actionButton.view.isHidden = false
+    }
+    
     func setupAR(){
-        actualState = .detectingPlanes
-        
         arSceneView.delegate = self
         
         #if DEBUG
@@ -108,7 +153,8 @@ class ARSceneViewController: UIViewController {
     
     //MARk: Observer methods for state of game
     func detectingPlanesSetupUI(){
-        
+        message.message = contants.startScanningMessage
+        message.view.isHidden = false
     }
     
     func retriveInfoSetupUI(){
