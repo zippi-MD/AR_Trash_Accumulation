@@ -59,7 +59,12 @@ class HorizontalPickerViewController: UIViewController {
         self.values = values
         self.massUnit = mass
         self.timeUnit = nil
-        (singularSuffix!, pluralSuffix!) = getSuffixesFor(mass)
+        
+        let suffixes = getSuffixesFor(mass)
+        
+        singularSuffix = suffixes.0
+        pluralSuffix = suffixes.1
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -67,7 +72,12 @@ class HorizontalPickerViewController: UIViewController {
         self.values = values
         self.timeUnit = time
         self.massUnit = nil
-        (singularSuffix!, pluralSuffix!) = getSuffixesFor(time)
+        
+        let suffixes = getSuffixesFor(time)
+        
+        singularSuffix = suffixes.0
+        pluralSuffix = suffixes.1
+        
         super.init(nibName: nil, bundle: nil)
     }
     
