@@ -67,7 +67,7 @@ class ActionButtonViewController: UIViewController {
     }
     
     override func didMove(toParent parent: UIViewController?) {
-        guard let parentView = parent!.view else {return}
+        guard let parentView = parent?.view else {return}
         
         view.center = CGPoint(x: (parentView.frame.width - (view.frame.width/2) - 10), y: parentView.frame.height - (view.frame.height * 2))
     }
