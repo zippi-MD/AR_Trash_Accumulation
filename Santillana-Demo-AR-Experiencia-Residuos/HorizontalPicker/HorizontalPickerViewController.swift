@@ -14,17 +14,18 @@ class HorizontalPickerViewController: UIViewController {
     private var selectorIndicatorView: UIView!
     private var suffixLabel: UILabel!
     
-    var values: [Any]! {
+    var values: [Int]! {
         didSet{
             updatePickerData()
         }
     }
-    var singularSuffix: String! {
+    private var singularSuffix: String! {
         didSet{
             updatePickerData()
         }
     }
-    var pluralSuffix: String! {
+    
+    private var pluralSuffix: String! {
         didSet{
             updatePickerData()
         }
@@ -51,12 +52,22 @@ class HorizontalPickerViewController: UIViewController {
     private let numberTextFont = UIFont(name: "PingFangTC-Semibold", size: 40)
     private let textFont = UIFont(name: "PingFangTC-Semibold", size: 25)
     
-    init(values: [Any], singularSuffix: String, pluralSuffix: String) {
-        
+    private var massUnit: Mass?
+    private var timeUnit: Time?
+    
+    init(values: [Int], unit mass: Mass){
         self.values = values
-        self.singularSuffix = singularSuffix
-        self.pluralSuffix = pluralSuffix
-        
+        self.massUnit = mass
+        self.timeUnit = nil
+        (singularSuffix!, pluralSuffix!) = getSuffixesFor(mass)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(values: [Int], unit time: Time){
+        self.values = values
+        self.timeUnit = time
+        self.massUnit = nil
+        (singularSuffix!, pluralSuffix!) = getSuffixesFor(time)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -128,11 +139,15 @@ class HorizontalPickerViewController: UIViewController {
     }
     
     //MARK: - Public Methods
-    func getActualPickerValue() -> (Any, String){
+    func getActualPickerValue() -> (Int, Any){
         let value = values[picker.selectedRow(inComponent: 0)]
-        let suffix = suffixLabel.text!
         
-        return (value, suffix)
+        if let time = timeUnit {
+            return(value, time)
+        }
+        else {
+            return(value, massUnit!)
+        }
     }
     
 }
@@ -160,7 +175,15 @@ extension HorizontalPickerViewController: UIPickerViewDelegate {
             suffixLabel.text = pluralSuffix
         }
         
-        delegate?.pickerChangedValueTo(values[row], withSuffix: suffixLabel.text!)
+        if let time = timeUnit{
+            delegate?.pickerDidChangedValueTo(values[row], withUnit: time)
+            return
+        }
+        if let mass = massUnit {
+            delegate?.pickerDidChangedValueTo(values[row], withUnit: mass)
+            return
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
