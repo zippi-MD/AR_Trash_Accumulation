@@ -14,7 +14,7 @@ class ActionButtonViewController: UIViewController {
     private var buttonLabel: UILabel!
     private let labelFont = UIFont(name: "PingFangTC-Semibold", size: 40)!
     
-    var buttonText: String! {
+    var buttonText: String {
         willSet {
             if let _ = buttonLabel {
                 buttonLabel.text = newValue
