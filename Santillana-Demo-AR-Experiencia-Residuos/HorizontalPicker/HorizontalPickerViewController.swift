@@ -86,6 +86,12 @@ class HorizontalPickerViewController: UIViewController {
         setupSuffixLabel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let row = 0
+        picker.selectRow(row, inComponent: 0, animated: false)
+        sendUpdatedValueToDelegate(value: values[row])
+    }
+    
     private func setupPicker(){
         picker = UIPickerView(frame: CGRect(x: 60, y: Int(-pickerRowHeight/2), width: viewHeight - 20, height: viewWidth))
         picker.dataSource = self
@@ -138,6 +144,17 @@ class HorizontalPickerViewController: UIViewController {
         }
     }
     
+    private func sendUpdatedValueToDelegate(value: Int){
+        if let time = timeUnit{
+            delegate?.pickerDidChangedValueTo(value, withUnit: time)
+            return
+        }
+        if let mass = massUnit {
+            delegate?.pickerDidChangedValueTo(value, withUnit: mass)
+            return
+        }
+    }
+    
     //MARK: - Public Methods
     func getActualPickerValue() -> (Int, Any){
         let value = values[picker.selectedRow(inComponent: 0)]
@@ -148,6 +165,18 @@ class HorizontalPickerViewController: UIViewController {
         else {
             return(value, massUnit!)
         }
+    }
+    
+    func updateUnitTo(_ unit: Any){
+        if let _ = timeUnit, let time = unit as? Time {
+            timeUnit = time
+            return
+        }
+        if let _ = massUnit, let mass = unit as? Mass {
+            massUnit = mass
+        }
+        
+        assert(true, "Wrong unit set for HorizontalPicker")
     }
     
 }
@@ -175,14 +204,7 @@ extension HorizontalPickerViewController: UIPickerViewDelegate {
             suffixLabel.text = pluralSuffix
         }
         
-        if let time = timeUnit{
-            delegate?.pickerDidChangedValueTo(values[row], withUnit: time)
-            return
-        }
-        if let mass = massUnit {
-            delegate?.pickerDidChangedValueTo(values[row], withUnit: mass)
-            return
-        }
+        sendUpdatedValueToDelegate(value: values[row])
         
     }
     
