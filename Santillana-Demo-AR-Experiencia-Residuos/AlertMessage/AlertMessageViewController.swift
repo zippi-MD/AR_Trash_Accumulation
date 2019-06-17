@@ -59,9 +59,9 @@ class AlertMessageViewController: UIViewController {
     }
     
     override func didMove(toParent parent: UIViewController?) {
-        guard let parentView = parent!.view else {return}
+        guard let parentView = parent?.view else {return}
         
-        view.center = CGPoint(x: 50, y: parentView.frame.height - viewHeight)
+        view.center = CGPoint(x: (view.frame.width / 2) + 20, y: parentView.frame.height - viewHeight)
         
     }
 
