@@ -21,8 +21,6 @@ class ARSceneViewController: UIViewController {
     //MARK: picker variables and data
     var pickerController: HorizontalPickerViewController!
     var pickerValues = [1,2,3,4,5,6,7,8,9,10]
-    var pickerSingularSuffix = "Día"
-    var pickerPluralSuffix = "Días"
     
     //MARK: Control flow variables
     var actualState: AppState!{
@@ -39,6 +37,7 @@ class ARSceneViewController: UIViewController {
             }
         }
     }
+    
     var debugPlanes = [SCNNode]()
     var timeInformation: TimeInformation?
     var trashInformation: TrashInformation?
@@ -46,17 +45,21 @@ class ARSceneViewController: UIViewController {
     //MARK: life cycle of view controller
     override func viewDidLoad() {
         super.viewDidLoad()
-        actualState = .detectingPlanes
+        
         setupAR()
         setupPicker()
+        actualState = .detectingPlanes
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        pickerController.view.isHidden = true
+        
+        
         addChild(pickerController)
         view.addSubview(pickerController.view)
         pickerController.didMove(toParent: self)
+        
+        pickerController.view.isHidden = true
     }
     //MARK: Actions
     
@@ -81,7 +84,7 @@ class ARSceneViewController: UIViewController {
     
     //MARK: methods
     func setupPicker(){
-        pickerController = HorizontalPickerViewController(values: pickerValues, singularSuffix: pickerSingularSuffix, pluralSuffix: pickerPluralSuffix)
+        pickerController = HorizontalPickerViewController(values: pickerValues, unit: .kilo)
     }
     
     func setupAR(){
