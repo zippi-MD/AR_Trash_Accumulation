@@ -13,4 +13,5 @@ class ARSceneViewConstans {
     
     let startScanningMessage = "Mueve el iPad para escanear el piso de tu cuarto"
     let scanningAlertMessage = "Recuerda escanear todo el piso y las mesas que tengas..."
+    let actionButtonForFinishedScanning = "¡Listo!"
 }
