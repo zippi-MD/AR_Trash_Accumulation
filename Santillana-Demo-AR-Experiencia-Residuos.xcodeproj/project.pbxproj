@@ -20,6 +20,7 @@
 		D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187B322AEC34300C46E75 /* ARSceneViewController.swift */; };
 		D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */; };
 		D493F85B22B33A4600AEBB43 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D4A4E93922B8063C007F5BDF /* UnitSuffixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */; };
 		D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */; };
 		D4C45EEC22B42A88001F5DAD /* AlertMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */; };
 		D4E7777122B181330038EF14 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777022B181330038EF14 /* Colors.swift */; };
@@ -45,6 +46,7 @@
 		D41187AD22AEC26100C46E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41187B322AEC34300C46E75 /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
+		D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSuffixes.swift; sourceTree = "<group>"; };
 		D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLabelViewController.swift; sourceTree = "<group>"; };
 		D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageViewController.swift; sourceTree = "<group>"; };
 		D4E7777022B181330038EF14 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				D4E7777022B181330038EF14 /* Colors.swift */,
 				D4EAF91422B411CA0019A3B0 /* Strings.swift */,
 				69FE862B22B41DB900B47527 /* BoundingFunction.swift */,
+				D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				D4EAF91722B411F00019A3B0 /* ARSceneViewConstans.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
 				D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */,
+				D4A4E93922B8063C007F5BDF /* UnitSuffixes.swift in Sources */,
 				D41187A222AEC26000C46E75 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
