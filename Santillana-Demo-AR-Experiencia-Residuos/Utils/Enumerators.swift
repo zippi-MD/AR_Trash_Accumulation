@@ -23,3 +23,7 @@ enum Time: Int {
     case month = 30
     case year = 365
 }
+
+enum Mass {
+    case kilo
+}
