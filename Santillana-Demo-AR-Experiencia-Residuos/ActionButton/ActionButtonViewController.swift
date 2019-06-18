@@ -12,7 +12,7 @@ class ActionButtonViewController: UIViewController {
 
     private var containerView: UIView!
     private var buttonLabel: UILabel!
-    private let labelFont = UIFont(name: "PingFangTC-Semibold", size: 40)!
+    private let labelFont = UIFont(name: "PingFangTC-Semibold", size: 25)!
     
     var buttonText: String {
         willSet {
@@ -33,25 +33,11 @@ class ActionButtonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 100))
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view = UIView(frame: CGRect(x: 0, y: 0, width: 250, height: 90))
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         view.layer.cornerRadius = 10
         setupButtonLabel()
-        setupContainerView()
         
-    }
-    
-    private func setupContainerView(){
-        containerView = UIView(frame: view.frame)
-        containerView.layer.cornerRadius = 10
-        
-        let gradient = generateGradientLayer(colors: [UIColor.Santillana.deepBlue.cgColor, UIColor.Santillana.blue.cgColor], frame: containerView.frame)
-        gradient.cornerRadius = 10
-        containerView.layer.addSublayer(gradient)
-        
-        containerView.mask = buttonLabel
-        
-        self.view.addSubview(containerView)
     }
     
     private func setupButtonLabel(){

@@ -46,7 +46,8 @@ class MessageLabelViewController: UIViewController {
     }
     
     private func setupLabel(){
-        messageLabel = UILabel(frame: view.frame)
+        messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 10, height: view.frame.height))
+        messageLabel.center = view.center
         messageLabel.text = message
         messageLabel.font = labelFont
         messageLabel.textAlignment = .center

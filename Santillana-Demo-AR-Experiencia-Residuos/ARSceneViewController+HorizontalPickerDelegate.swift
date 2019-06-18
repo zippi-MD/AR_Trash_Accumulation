@@ -14,7 +14,8 @@ extension ARSceneViewController: HorizontalPickerDelegate {
     }
     
     func pickerDidChangedValueTo(_ value: Int, withUnit unit: Time) {
-        
+        timeSelected.timeSelected = value
+        timeSelected.timeLapse = unit
     }
     
     

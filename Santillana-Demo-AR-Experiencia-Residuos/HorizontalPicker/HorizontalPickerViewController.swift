@@ -46,7 +46,7 @@ class HorizontalPickerViewController: UIViewController {
     
     private let indicatorBorderWidth = CGFloat(5)
     
-    private let viewBackgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
+    private let viewBackgroundColor = UIColor.black.withAlphaComponent(0.7)
     private let textColor = UIColor.white
     
     private let numberTextFont = UIFont(name: "PingFangTC-Semibold", size: 40)
@@ -180,10 +180,20 @@ class HorizontalPickerViewController: UIViewController {
     func updateUnitTo(_ unit: Any){
         if let _ = timeUnit, let time = unit as? Time {
             timeUnit = time
+            let newSuffixes = getSuffixesFor(time)
+            singularSuffix = newSuffixes.0
+            pluralSuffix = newSuffixes.1
+            picker.selectRow(0, inComponent: 0, animated: true)
+            sendUpdatedValueToDelegate(value: values[0])
+            suffixLabel.text = singularSuffix
             return
         }
         if let _ = massUnit, let mass = unit as? Mass {
             massUnit = mass
+            let newSuffixes = getSuffixesFor(mass)
+            singularSuffix = newSuffixes.0
+            pluralSuffix = newSuffixes.1
+            return
         }
         
         assert(true, "Wrong unit set for HorizontalPicker")
