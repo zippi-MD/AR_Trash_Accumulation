@@ -16,12 +16,15 @@ enum AppState {
     case detectingPlanes
     case retriveInfo
     case displayTrash
+    case changingSelectedTime
 }
 
-enum Time: Int {
+enum Time: Int, CaseIterable {
     case day = 1
     case month = 30
     case year = 365
+    
+    
 }
 
 enum Mass {

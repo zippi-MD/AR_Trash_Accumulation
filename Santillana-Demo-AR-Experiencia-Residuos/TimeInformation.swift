@@ -20,7 +20,7 @@ struct TimeInformation {
     var timeInDays: Int = 0
     
     private mutating func changeTimeInDays(){
-        timeInDays = timeSelected * timeLapse.hashValue
+        timeInDays = timeSelected * timeLapse.rawValue
     }
     
     init(timeSelected: Int, timeLapse: Time) {
