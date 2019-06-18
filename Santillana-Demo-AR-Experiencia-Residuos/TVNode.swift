@@ -12,21 +12,21 @@ import AVFoundation
 
 class TVNode: SCNNode {
     private var videoPlayer: AVPlayer!
-    private var videoIsPlay: Bool
+    private var videoIsPlaying: Bool
     
     override init() {
-        self.videoIsPlay = false
+        self.videoIsPlaying = false
         super.init()
         getGeometry()
     }
     
     func playOrPause() {
-        if videoIsPlay {
+        if videoIsPlaying {
             videoPlayer.pause()
-            videoIsPlay = false
+            videoIsPlaying = false
         }else {
             videoPlayer.play()
-            videoIsPlay = true
+            videoIsPlaying = true
         }
         changeTexture()
     }
@@ -72,7 +72,7 @@ class TVNode: SCNNode {
     
     private func changeTexture(){
         guard let playButton = self.childNode(withName: "Play", recursively: true) else { return }
-        if videoIsPlay {
+        if videoIsPlaying {
             guard let image = UIImage(named: "pausa") else { return }
             playButton.geometry?.firstMaterial?.diffuse.contents = image
         }else{
