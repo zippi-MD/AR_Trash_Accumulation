@@ -17,4 +17,9 @@ class ARSceneViewConstans {
     
     let retrieveInformationAskTrashData = "¿Cuanta basura generas en un día?"
     let endRetrievingInformation = "Continuar..."
+    
+    let showTrashAlertMessage = "Mira al rededor para que veas toda la basura que generas..."
+    let showTrashMessage = "Esta es la basura que generas en: "
+    let showTrashChangeSelectedTime = "Seleccionar otra cantidad de tiempo"
+    let showTrashViewNewSelectedTime = "Ver.."
 }
