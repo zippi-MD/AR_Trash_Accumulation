@@ -9,6 +9,6 @@
 import Foundation
 
 protocol HorizontalPickerDelegate {
-    func pickerDidChangedValueTo(_ value: Int, withUnit: Mass)
-    func pickerDidChangedValueTo(_ value: Int, withUnit: Time)
+    func pickerDidChangedValueTo(_ value: Int, withUnit unit: Mass)
+    func pickerDidChangedValueTo(_ value: Int, withUnit unit: Time)
 }
