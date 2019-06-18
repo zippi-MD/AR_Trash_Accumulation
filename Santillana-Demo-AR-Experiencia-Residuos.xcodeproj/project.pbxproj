@@ -22,6 +22,8 @@
 		D493F85B22B33A4600AEBB43 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D4A4E93922B8063C007F5BDF /* UnitSuffixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */; };
 		D4A4E93C22B81C75007F5BDF /* ActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93B22B81C75007F5BDF /* ActionButtonViewController.swift */; };
+		D4A4E93E22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93D22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift */; };
+		D4A4E94022B88CB8007F5BDF /* PickerValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93F22B88CB8007F5BDF /* PickerValues.swift */; };
 		D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */; };
 		D4C45EEC22B42A88001F5DAD /* AlertMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */; };
 		D4E7777122B181330038EF14 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E7777022B181330038EF14 /* Colors.swift */; };
@@ -49,6 +51,8 @@
 		D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
 		D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSuffixes.swift; sourceTree = "<group>"; };
 		D4A4E93B22B81C75007F5BDF /* ActionButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonViewController.swift; sourceTree = "<group>"; };
+		D4A4E93D22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+HorizontalPickerDelegate.swift"; sourceTree = "<group>"; };
+		D4A4E93F22B88CB8007F5BDF /* PickerValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerValues.swift; sourceTree = "<group>"; };
 		D4C45EE922B41D96001F5DAD /* MessageLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLabelViewController.swift; sourceTree = "<group>"; };
 		D4C45EEB22B42A88001F5DAD /* AlertMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageViewController.swift; sourceTree = "<group>"; };
 		D4E7777022B181330038EF14 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 				D41187AA22AEC26100C46E75 /* LaunchScreen.storyboard */,
 				D41187AD22AEC26100C46E75 /* Info.plist */,
 				D41187B322AEC34300C46E75 /* ARSceneViewController.swift */,
+				D4A4E93D22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift */,
 				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
 				D4EAF91622B411F00019A3B0 /* ARSceneViewConstans.swift */,
 				21FE258C22B4219B004DFA36 /* TimeInformation.swift */,
@@ -143,6 +148,7 @@
 				D4EAF91422B411CA0019A3B0 /* Strings.swift */,
 				69FE862B22B41DB900B47527 /* BoundingFunction.swift */,
 				D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */,
+				D4A4E93F22B88CB8007F5BDF /* PickerValues.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -237,7 +243,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4A4E93C22B81C75007F5BDF /* ActionButtonViewController.swift in Sources */,
+				D4A4E93E22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift in Sources */,
 				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
+				D4A4E94022B88CB8007F5BDF /* PickerValues.swift in Sources */,
 				D4EAF91522B411CA0019A3B0 /* Strings.swift in Sources */,
 				69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */,
 				D493F85B22B33A4600AEBB43 /* (null) in Sources */,

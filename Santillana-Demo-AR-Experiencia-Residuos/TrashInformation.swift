@@ -8,5 +8,6 @@
 
 import Foundation
 struct TrashInformation {
-    var trashPerDay: Double
+    var quantity: Int
+    var unit: Mass
 }

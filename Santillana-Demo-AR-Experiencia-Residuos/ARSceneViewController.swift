@@ -20,7 +20,6 @@ class ARSceneViewController: UIViewController {
     
     //MARK: picker variables and data
     var pickerController: HorizontalPickerViewController!
-    var pickerValues = [1,2,3,4,5,6,7,8,9,10]
     
     var message: MessageLabelViewController!
     var alert: AlertMessageViewController!
@@ -28,6 +27,12 @@ class ARSceneViewController: UIViewController {
     
     //MARK: Detecting Plane Variable
     var showedAlertMessageForDetectingPlane = false
+    
+    //MARK: Retrieving Information
+    var trash: TrashInformation!
+    
+    //MARK: Showing Trash
+    var timeSelected: TimeInformation!
     
     //MARK: Control flow variables
     var actualState: AppState!{
@@ -88,7 +93,7 @@ class ARSceneViewController: UIViewController {
     //MARK: methods
     
     func setupUIElements(){
-        setupPicker()
+        setupMassPicker()
         setupMessage()
         setupActionButton()
     }
@@ -110,12 +115,27 @@ class ARSceneViewController: UIViewController {
         actionButton.view.isHidden = true
     }
     
-    func setupPicker(){
-        pickerController = HorizontalPickerViewController(values: pickerValues, unit: .kilo)
+    func setupMassPicker(){
+        let pickerUnit = Mass.kilo
+        trash = TrashInformation(quantity: 0, unit: pickerUnit)
+        pickerController = HorizontalPickerViewController(values: pickerMassValues[pickerUnit]!, unit: pickerUnit)
+        pickerController.delegate = self
+    }
+    
+    func setupTimePicker(){
+        let pickerUnit = Time.day
+        timeSelected = TimeInformation(timeSelected: 1, timeLapse: pickerUnit)
+        pickerController = HorizontalPickerViewController(values: pickerTimeValues[pickerUnit]!, unit: pickerUnit)
+    }
+    
+    func addTimerPickerToView(){
+        addChild(pickerController)
+        view.addSubview(pickerController.view)
+        pickerController.didMove(toParent: self)
     }
     
     func setupMessage(){
-        message = MessageLabelViewController(message: "Test")
+        message = MessageLabelViewController(message: " ")
     }
     
     func showAlertMessage(message: String){
@@ -127,6 +147,8 @@ class ARSceneViewController: UIViewController {
     
     func setupActionButton(){
         actionButton = ActionButtonViewController(text: " ")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(actionButtonWasPressed))
+        actionButton.view.addGestureRecognizer(tap)
     }
     
     func showActionButtonWithMessage(_ message: String){
@@ -158,10 +180,41 @@ class ARSceneViewController: UIViewController {
     }
     
     func retriveInfoSetupUI(){
+        actionButton.view.isHidden = true
+        alert.view.isHidden = true
+        
+        message.message = contants.retrieveInformationAskTrashData
+        pickerController.view.isHidden = false
+        
+        actionButton.buttonText = contants.endRetrievingInformation
+        actionButton.view.isHidden = false
         
     }
     
     func displayTrashSetupUI(){
+        actionButton.view.isHidden = true
+        alert.view.isHidden = false
         
+        
+    }
+    
+    
+    @objc func actionButtonWasPressed(){
+        guard let state = actualState else { return }
+        switch state {
+        case .detectingPlanes:
+            stopPlaneDetection()
+            actualState = .retriveInfo
+            
+        case .retriveInfo:
+            pickerController.view.isHidden = true
+            setupTimePicker()
+            addTimerPickerToView()
+            actualState = .displayTrash
+            
+        default:
+            assert(true, "Missing Case")
+            
+        }
     }
 }
