@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21C71E0B22B988E400ADCB28 /* TVNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C71E0A22B988E400ADCB28 /* TVNode.swift */; };
+		21C71E0D22B9893400ADCB28 /* Media.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 21C71E0C22B9893400ADCB28 /* Media.mp4 */; };
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
 		21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258C22B4219B004DFA36 /* TimeInformation.swift */; };
 		21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258E22B4265C004DFA36 /* TrashInformation.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21C71E0A22B988E400ADCB28 /* TVNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVNode.swift; sourceTree = "<group>"; };
+		21C71E0C22B9893400ADCB28 /* Media.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Media.mp4; sourceTree = "<group>"; };
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		21FE258C22B4219B004DFA36 /* TimeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInformation.swift; sourceTree = "<group>"; };
 		21FE258E22B4265C004DFA36 /* TrashInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashInformation.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 				D4E7776F22B181200038EF14 /* Utils */,
 				D41187A122AEC26000C46E75 /* AppDelegate.swift */,
 				D41187A322AEC26000C46E75 /* ViewController.swift */,
+				21C71E0C22B9893400ADCB28 /* Media.mp4 */,
 				D41187A522AEC26000C46E75 /* Main.storyboard */,
 				D41187A822AEC26100C46E75 /* Assets.xcassets */,
 				695F401522B1B2E2009E277E /* art.scnassets */,
@@ -111,6 +116,7 @@
 				21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */,
 				D4EAF91622B411F00019A3B0 /* ARSceneViewConstans.swift */,
 				21FE258C22B4219B004DFA36 /* TimeInformation.swift */,
+				21C71E0A22B988E400ADCB28 /* TVNode.swift */,
 				21FE258E22B4265C004DFA36 /* TrashInformation.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
@@ -228,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21C71E0D22B9893400ADCB28 /* Media.mp4 in Resources */,
 				D41187AC22AEC26100C46E75 /* LaunchScreen.storyboard in Resources */,
 				695F401622B1B2E2009E277E /* art.scnassets in Resources */,
 				D41187A922AEC26100C46E75 /* Assets.xcassets in Resources */,
@@ -247,6 +254,7 @@
 				21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */,
 				D4A4E94022B88CB8007F5BDF /* PickerValues.swift in Sources */,
 				D4EAF91522B411CA0019A3B0 /* Strings.swift in Sources */,
+				21C71E0B22B988E400ADCB28 /* TVNode.swift in Sources */,
 				69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */,
 				D493F85B22B33A4600AEBB43 /* (null) in Sources */,
 				D4E7777422B1DB330038EF14 /* HorizontalPickerDelegate.swift in Sources */,
