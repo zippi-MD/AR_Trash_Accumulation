@@ -24,6 +24,7 @@ class ARSceneViewController: UIViewController {
     var message: MessageLabelViewController!
     var alert: AlertMessageViewController!
     var actionButton: ActionButtonViewController!
+    var segmentedControl: UISegmentedControl!
     
     //MARK: Detecting Plane Variable
     var showedAlertMessageForDetectingPlane = false
@@ -37,15 +38,15 @@ class ARSceneViewController: UIViewController {
     //MARK: Control flow variables
     var actualState: AppState!{
         willSet {
-            switch newValue {
-            case .detectingPlanes?:
+            switch newValue! {
+            case .detectingPlanes:
                 self.detectingPlanesSetupUI()
-            case .retriveInfo?:
+            case .retriveInfo:
                 self.retriveInfoSetupUI()
-            case .displayTrash?:
+            case .displayTrash:
                 self.displayTrashSetupUI()
-            default:
-                break
+            case .changingSelectedTime:
+                self.changeSelectedTimeSetupUI()
             }
         }
     }
@@ -126,6 +127,50 @@ class ARSceneViewController: UIViewController {
         let pickerUnit = Time.day
         timeSelected = TimeInformation(timeSelected: 1, timeLapse: pickerUnit)
         pickerController = HorizontalPickerViewController(values: pickerTimeValues[pickerUnit]!, unit: pickerUnit)
+        pickerController.delegate = self
+    }
+    
+    func setupSegmentedControl(){
+        var items = [String]()
+        
+        for timeUnit in Time.allCases {
+            items.append(getSuffixesFor(timeUnit).1)
+        }
+        
+        segmentedControl = UISegmentedControl(items: items)
+        
+        segmentedControl.layer.cornerRadius = 10
+        segmentedControl.backgroundColor = UIColor.black.withAlphaComponent(6)
+        segmentedControl.tintColor = UIColor.white
+        
+        segmentedControl.selectedSegmentIndex = 0
+        
+        let pickerCenter = pickerController.view.center
+        segmentedControl.center = CGPoint(x: pickerCenter.x, y: pickerCenter.y + pickerController.view.frame.height/2 + segmentedControl.frame.height)
+        
+        segmentedControl.addTarget(self, action: #selector(indexChanged(_:)), for: .valueChanged)
+
+    }
+    
+    func addSegmentedControlToView(){
+        view.addSubview(segmentedControl)
+    }
+    
+    @objc func indexChanged(_ sender: UISegmentedControl){
+        var time: Time = .day
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            time = .day
+        case 1:
+            time = .month
+        case 2:
+            time = .year
+        default:
+            assert(true, "Missing case for segmented controller")
+        }
+        pickerController.values = pickerTimeValues[time]
+        pickerController.updateUnitTo(time)
     }
     
     func addTimerPickerToView(){
@@ -143,6 +188,14 @@ class ARSceneViewController: UIViewController {
         addChild(alert)
         view.addSubview(alert.view)
         alert.didMove(toParent: self)
+    }
+    
+    func messageForGeneratedTrashIn(value: Int, timeUnit: Time) -> String{
+        let suffixes = getSuffixesFor(timeUnit)
+        
+        let timeSuffix = value == 1 ? suffixes.0 : suffixes.1
+        
+        return contants.showTrashMessage + "\(value)" + " \(timeSuffix)"
     }
     
     func setupActionButton(){
@@ -192,10 +245,30 @@ class ARSceneViewController: UIViewController {
     }
     
     func displayTrashSetupUI(){
-        actionButton.view.isHidden = true
+        
+        pickerController.view.isHidden = true
+        segmentedControl.isHidden = true
+        
+        message.message = messageForGeneratedTrashIn(value: timeSelected.timeSelected, timeUnit: timeSelected.timeLapse)
+        
+        showAlertMessage(message: contants.showTrashAlertMessage)
         alert.view.isHidden = false
         
+        actionButton.buttonText = contants.showTrashChangeSelectedTime
+        actionButton.view.isHidden = true
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.actionButton.view.isHidden = false
+        }
+        
+    }
+    
+    func changeSelectedTimeSetupUI(){
+        pickerController.view.isHidden = false
+        segmentedControl.isHidden = false
+        
+        actionButton.buttonText = contants.showTrashViewNewSelectedTime
+        actionButton.view.isHidden = false
     }
     
     
@@ -210,6 +283,14 @@ class ARSceneViewController: UIViewController {
             pickerController.view.isHidden = true
             setupTimePicker()
             addTimerPickerToView()
+            setupSegmentedControl()
+            addSegmentedControlToView()
+            actualState = .displayTrash
+            
+        case .displayTrash:
+            actualState = .changingSelectedTime
+            
+        case .changingSelectedTime:
             actualState = .displayTrash
             
         default:
