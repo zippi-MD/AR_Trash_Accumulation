@@ -15,14 +15,14 @@ func areaDistribution(Planes: [SCNNode]) -> [Float] {
     var areaTotal: Float = 0
     var areasPercent = [Float]()
     
-    for i in Planes{
-        var radius = higherBounding(i.boundingBox.max)
+    for plane in Planes{
+        let radius = higherBounding(plane.boundingBox.max)
         areas.append(areaBounding(radius))
         areaTotal = areaTotal + areaBounding(radius)
     }
     
-    for i in areas {
-        var percent = (i / areaTotal )
+    for area in areas {
+        let percent = (area / areaTotal )
         areasPercent.append(percent)
         
         
