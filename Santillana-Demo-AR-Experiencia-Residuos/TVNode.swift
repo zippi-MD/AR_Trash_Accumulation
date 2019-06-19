@@ -50,6 +50,7 @@ class TVNode: SCNNode {
         for sceneChild in scene.rootNode.childNodes{
             if sceneChild.name == "Tele" {
                 self.geometry = sceneChild.geometry
+                self.scale = SCNVector3(0.2, 0.2, 0.2)
                 guard let screen = sceneChild.childNode(withName: "planeCine", recursively: true) else { return }
                 let videoNode = SKVideoNode(avPlayer: videoPlayer)
                 let videoScene = SKScene(size: CGSize(width: 1280, height: 720 ))
