@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2160FB9122BC1AEA00310BF2 /* ModelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2160FB9022BC1AEA00310BF2 /* ModelNode.swift */; };
 		2192312122BADBCD001D1569 /* CalculateTotalTrash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192312022BADBCD001D1569 /* CalculateTotalTrash.swift */; };
 		21C71E0B22B988E400ADCB28 /* TVNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C71E0A22B988E400ADCB28 /* TVNode.swift */; };
 		21C71E0D22B9893400ADCB28 /* Media.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 21C71E0C22B9893400ADCB28 /* Media.mp4 */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2160FB9022BC1AEA00310BF2 /* ModelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNode.swift; sourceTree = "<group>"; };
 		2192312022BADBCD001D1569 /* CalculateTotalTrash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateTotalTrash.swift; sourceTree = "<group>"; };
 		21C71E0A22B988E400ADCB28 /* TVNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVNode.swift; sourceTree = "<group>"; };
 		21C71E0C22B9893400ADCB28 /* Media.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Media.mp4; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				21FE258C22B4219B004DFA36 /* TimeInformation.swift */,
 				21C71E0A22B988E400ADCB28 /* TVNode.swift */,
 				21FE258E22B4265C004DFA36 /* TrashInformation.swift */,
+				2160FB9022BC1AEA00310BF2 /* ModelNode.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
 				21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */,
 				D4EAF91322B411AB0019A3B0 /* Enumerators.swift in Sources */,
+				2160FB9122BC1AEA00310BF2 /* ModelNode.swift in Sources */,
 				D4EAF91722B411F00019A3B0 /* ARSceneViewConstans.swift in Sources */,
 				D41187A422AEC26000C46E75 /* ViewController.swift in Sources */,
 				D4C45EEA22B41D96001F5DAD /* MessageLabelViewController.swift in Sources */,
