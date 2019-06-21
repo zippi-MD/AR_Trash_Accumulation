@@ -27,6 +27,15 @@ enum Time: Int, CaseIterable {
     
 }
 
+enum TrashModels: String, CaseIterable {
+    case can = "lata"
+    case bottle  = "botella"
+    case bagx1 = "bolsa1Kilos"
+    case bagx5 = "bolsa5Kilos"
+    case bagx10 = "bolsa10Kilos"
+    case bagx50 = "bolsa50Kilos"
+}
+
 enum Mass {
     case kilo
 }
