@@ -73,8 +73,14 @@ class ARSceneViewController: UIViewController {
     //MARK: Actions
     
     func setTrashInformation(){
-        //logic to get the total trash
-        actualState = .displayTrash
+        let areasDistribution = areaDistribution(Planes: debugPlanes)
+        var trashPerPlane = [Float]()
+        for area in areasDistribution {
+            let relativeTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity) * area
+            trashPerPlane.append(relativeTrash)
+        }
+        
+        
     }
     
     func stopPlaneDetection() {
@@ -260,6 +266,7 @@ class ARSceneViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.actionButton.view.isHidden = false
         }
+        setTrashInformation()
         
     }
     
