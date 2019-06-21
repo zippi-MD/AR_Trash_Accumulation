@@ -73,7 +73,7 @@ class ARSceneViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first, let tvNode = self.tvNode else { return }
+        guard let touch = touches.first, let tvNode = self.tvNode else { return }
         let point = touch.location(in: self.arSceneView)
         guard let hit = self.arSceneView.hitTest(point, options: nil).first else { return }
         let node = hit.node

@@ -49,8 +49,7 @@ class TVNode: SCNNode {
         guard let scene = try? SCNScene(url: sceneUrl, options: nil) else { return }
         for sceneChild in scene.rootNode.childNodes{
             if sceneChild.name == "Tele" {
-                self.geometry = sceneChild.geometry
-                self.scale = SCNVector3(0.2, 0.2, 0.2)
+                self.addChildNode(sceneChild)
                 guard let screen = sceneChild.childNode(withName: "planeCine", recursively: true) else { return }
                 let videoNode = SKVideoNode(avPlayer: videoPlayer)
                 let videoScene = SKScene(size: CGSize(width: 1280, height: 720 ))
@@ -61,14 +60,8 @@ class TVNode: SCNNode {
                 videoNode.size.height = 720 / 2
                 
                 videoNode.position = CGPoint(x: 1288 / 2, y: 720 / 2)
-                
-                for child in sceneChild.childNodes{
-                    self.addChildNode(child)
-                }
             }
         }
-        
-        self.physicsBody = .static()
     }
     
     private func changeTexture(){
