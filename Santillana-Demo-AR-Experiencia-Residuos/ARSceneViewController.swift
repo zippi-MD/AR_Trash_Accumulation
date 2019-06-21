@@ -76,7 +76,7 @@ class ARSceneViewController: UIViewController {
         let areasDistribution = areaDistribution(Planes: debugPlanes)
         var trashPerPlane = [Float]()
         for area in areasDistribution {
-            let relativeTrash = calculateTotalTrash(days: timeSelected.timeInDays, trahPerDay: trash.quantity) * area
+            let relativeTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity) * area
             trashPerPlane.append(relativeTrash)
         }
         

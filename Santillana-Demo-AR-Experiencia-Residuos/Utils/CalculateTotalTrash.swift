@@ -7,6 +7,6 @@
 //
 
 import Foundation
-func calculateTotalTrash(days: Int, trahPerDay: Int) -> Float{
-    return Float(days * trahPerDay)
+func calculateTotalTrash(days: Int, trashPerDay: Int) -> Float{
+    return Float(days * trashPerDay)
 }
