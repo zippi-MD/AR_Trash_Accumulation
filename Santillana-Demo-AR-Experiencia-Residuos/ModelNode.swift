@@ -10,63 +10,60 @@ import SceneKit
 class ModelNode{
     static let share = ModelNode()
     
-    func lata() -> SCNNode {
-        guard let pathScene = Bundle.main.path(forResource: "lataX", ofType: "scn", inDirectory: "art.scnassets/Models") else { return SCNNode() }
+    func getModelNodeFor(_ trashModel: TrashModels) -> SCNNode?{
+        guard let pathScene = Bundle.main.path(forResource: trashModel.rawValue, ofType: "scn", inDirectory: "art.scnassets/Models") else { return nil }
         let urlScene = URL(fileURLWithPath: pathScene)
-        guard let scene = try? SCNScene(url: urlScene, options: nil) else { return SCNNode() }
-        var node = SCNNode()
+        guard let scene = try? SCNScene(url: urlScene, options: nil) else { return nil }
+        
         for child in scene.rootNode.childNodes {
-            if child.name == "lata" {
-                node = child.clone()
+            if child.name == trashModel.rawValue {
+                return child.clone()
             }
         }
         
-        return node
+        return nil
+    }
+    
+    func lata() -> SCNNode {
+        if let node = getModelNodeFor(.can) {
+            return node
+        }
+        return SCNNode()
     }
     
     func botella() -> SCNNode {
-        guard let pathScene = Bundle.main.path(forResource: "botellaX", ofType: "scn", inDirectory: "art.scnassets/Models") else { return SCNNode() }
-        let urlScene = URL(fileURLWithPath: pathScene)
-        guard let scene = try? SCNScene(url: urlScene, options: nil) else { return SCNNode() }
-        
-        var node = SCNNode()
-        for child in scene.rootNode.childNodes {
-            if child.name == "botella" {
-                node = child.clone()
-            }
+        if let node = getModelNodeFor(.bottle){
+            return node
         }
-        
-        return node
+        return SCNNode()
     }
     
     func bolsa1K() -> SCNNode {
-        guard let pathScene = Bundle.main.path(forResource: "bolsaX1K", ofType: "scn", inDirectory: "art.scnassets/Models") else { return SCNNode() }
-        let urlScene = URL(fileURLWithPath: pathScene)
-        guard let scene = try? SCNScene(url: urlScene, options: nil) else { return SCNNode() }
-        
-        var node = SCNNode()
-        for child in scene.rootNode.childNodes {
-            if child.name == "bolsaX1" {
-                node = child.clone()
-            }
+        if let node = getModelNodeFor(.bagx1){
+            return node
         }
-        
-        return node
+        return SCNNode()
     }
     
-    func bolsa2K() -> SCNNode {
-        guard let pathScene = Bundle.main.path(forResource: "bolsaX2", ofType: "scn", inDirectory: "art.scnassets/Models") else { return SCNNode() }
-        let urlScene = URL(fileURLWithPath: pathScene)
-        guard let scene = try? SCNScene(url: urlScene, options: nil) else { return SCNNode() }
-        
-        var node = SCNNode()
-        for child in scene.rootNode.childNodes {
-            if child.name == "bolsaX2" {
-                node = child.clone()
-            }
+    func bolsa5K() -> SCNNode {
+        if let node = getModelNodeFor(.bagx5){
+            return node
         }
-        
-        return node
+        return SCNNode()
+    }
+    
+    func bolsa10K() -> SCNNode {
+        if let node = getModelNodeFor(.bagx10){
+            return node
+        }
+        return SCNNode()
+    }
+    
+    func bolsa50K() -> SCNNode {
+        if let node = getModelNodeFor(.bagx50){
+            return node
+        }
+        return SCNNode()
     }
     
     func tvNode() -> SCNNode {
