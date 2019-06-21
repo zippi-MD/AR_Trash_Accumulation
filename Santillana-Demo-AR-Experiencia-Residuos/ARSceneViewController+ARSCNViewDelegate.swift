@@ -53,7 +53,7 @@ extension ARSceneViewController: ARSCNViewDelegate{
         let physicsBody = SCNPhysicsBody(type: .static, shape: boxBodyShape)
         node.physicsBody = physicsBody
         //texture of the node for detected planes
-        node.geometry?.firstMaterial?.diffuse.contents = UIColor.green.withAlphaComponent(0.5)
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.white.withAlphaComponent(0.25)
         
         return node
     }

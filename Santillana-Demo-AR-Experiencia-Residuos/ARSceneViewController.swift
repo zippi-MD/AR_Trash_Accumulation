@@ -52,6 +52,8 @@ class ARSceneViewController: UIViewController {
     }
     
     var debugPlanes = [SCNNode]()
+    var trashNodes = [SCNNode]()
+    var tvNode: TVNode?
     var timeInformation: TimeInformation?
     var trashInformation: TrashInformation?
     
@@ -70,17 +72,74 @@ class ARSceneViewController: UIViewController {
         actualState = .detectingPlanes
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first, let tvNode = self.tvNode else { return }
+        let point = touch.location(in: self.arSceneView)
+        guard let hit = self.arSceneView.hitTest(point, options: nil).first else { return }
+        let node = hit.node
+        
+        if node.name == "Play" {
+            tvNode.playOrPause()
+        }
+        
+        if node.name == "Recargar" {
+            tvNode.reset()
+        }
+    }
+    
     //MARK: Actions
     
     func setTrashInformation(){
-        let areasDistribution = areaDistribution(Planes: debugPlanes)
+        if let tvNode = self.tvNode {
+            tvNode.removeFromParentNode()
+        }
+        for trashNode in trashNodes {
+            trashNode.removeFromParentNode()
+        }
+        trashNodes = [SCNNode]()
+        
+        let totalTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity)
+        
+        let planePercentage = areaDistribution(Planes: debugPlanes)
+        
         var trashPerPlane = [Float]()
-        for area in areasDistribution {
-            let relativeTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity) * area
-            trashPerPlane.append(relativeTrash)
+        
+        for percentage in planePercentage {
+            trashPerPlane.append(totalTrash * percentage)
         }
         
+        var modelsPerPlane = garbageBagsInThePlane(TrashPlanes: trashPerPlane, timeLapse: timeSelected.timeLapse)
         
+        let models = ModelNode.share
+        let sceneRoot = self.arSceneView.scene.rootNode
+        
+        for (index, modelsForPlane) in modelsPerPlane.enumerated() {
+            let actualPlane = debugPlanes[index]
+            for model in TrashModels.allCases{
+                let range = Int(modelsForPlane[model] ?? 0)
+                if range > 0 {
+                    for _ in 0...range {
+                        if let node = models.getModelNodeFor(model) {
+                            node.position = actualPlane.position
+                            node.position.y += 0.3
+                            trashNodes.append(node)
+                            sceneRoot.addChildNode(node)
+                        }
+                    }
+                }
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30) {[unowned self] in
+            let max = trashPerPlane.index(of: trashPerPlane.max() ?? 0)
+            let index = Int(max?.magnitude ?? 0)
+            let plane = self.debugPlanes[index]
+            self.tvNode = TVNode()
+            guard let tvNode = self.tvNode else { return }
+            tvNode.position = plane.position
+            tvNode.position.y += 0.3
+            sceneRoot.addChildNode(tvNode)
+        }
     }
     
     func stopPlaneDetection() {
@@ -88,9 +147,9 @@ class ARSceneViewController: UIViewController {
         
         self.arSceneView.session.run(config)
         
-        for child in debugPlanes{
-            child.opacity = 0.0
-        }
+//        for child in debugPlanes{
+//            child.opacity = 0.0
+//        }
         self.actualState = .retriveInfo
         
     }
@@ -266,18 +325,6 @@ class ARSceneViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.actionButton.view.isHidden = false
         }
-        
-        let totalTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity)
-        
-        let planePercentage = areaDistribution(Planes: debugPlanes)
-        
-        var trashPerPlane = [Float]()
-        
-        for percentage in planePercentage {
-            trashPerPlane.append(totalTrash * percentage)
-        }
-        
-        var modelsPerPlane = garbageBagsInThePlane(TrashPlanes: trashPerPlane, timeLapse: timeSelected.timeLapse)
         
         setTrashInformation()
         
