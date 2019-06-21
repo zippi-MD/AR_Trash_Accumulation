@@ -14,6 +14,7 @@
 		21D3B24722B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */; };
 		21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258C22B4219B004DFA36 /* TimeInformation.swift */; };
 		21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FE258E22B4265C004DFA36 /* TrashInformation.swift */; };
+		690E2A8922BD501B00498FE3 /* GarbageDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690E2A8822BD501B00498FE3 /* GarbageDistribution.swift */; };
 		6911785922B9795D009C10E2 /* AreaDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6911785822B9795D009C10E2 /* AreaDistribution.swift */; };
 		695F401622B1B2E2009E277E /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 695F401522B1B2E2009E277E /* art.scnassets */; };
 		69FE862C22B41DB900B47527 /* BoundingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FE862B22B41DB900B47527 /* BoundingFunction.swift */; };
@@ -47,6 +48,7 @@
 		21D3B24622B0026B00672710 /* ARSceneViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		21FE258C22B4219B004DFA36 /* TimeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInformation.swift; sourceTree = "<group>"; };
 		21FE258E22B4265C004DFA36 /* TrashInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashInformation.swift; sourceTree = "<group>"; };
+		690E2A8822BD501B00498FE3 /* GarbageDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbageDistribution.swift; sourceTree = "<group>"; };
 		6911785822B9795D009C10E2 /* AreaDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaDistribution.swift; sourceTree = "<group>"; };
 		695F401522B1B2E2009E277E /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		69FE862B22B41DB900B47527 /* BoundingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundingFunction.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				D4A4E93F22B88CB8007F5BDF /* PickerValues.swift */,
 				6911785822B9795D009C10E2 /* AreaDistribution.swift */,
 				2192312022BADBCD001D1569 /* CalculateTotalTrash.swift */,
+				690E2A8822BD501B00498FE3 /* GarbageDistribution.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
 				21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */,
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
+				690E2A8922BD501B00498FE3 /* GarbageDistribution.swift in Sources */,
 				21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */,
 				D4EAF91322B411AB0019A3B0 /* Enumerators.swift in Sources */,
 				2160FB9122BC1AEA00310BF2 /* ModelNode.swift in Sources */,
