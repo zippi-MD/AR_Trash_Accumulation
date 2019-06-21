@@ -8,80 +8,76 @@
 
 import UIKit
 
-func garbageRatio(TrashMass: Float,ratioX50: Float, ratioX10: Float, ratioX5: Float ,ratioX1: Float, ratioCanAndBag: Float) -> [String: Float] {
-    var garbageBags = [String:Float]()
+func garbageRatio(TrashMass: Float,ratioX50: Float, ratioX10: Float, ratioX5: Float ,ratioX1: Float, ratioCanAndBag: Float) -> [TrashModels: Float] {
+    var garbageBags = [TrashModels:Float]()
     
     var garbageBagX50 = TrashMass * ratioX50
     garbageBagX50 = (garbageBagX50) * (1/50)
     garbageBagX50 = Float(Int(garbageBagX50))
-    if (garbageBagX50 > 0) {garbageBags["garbageBagX50"] = garbageBagX50}
+    if (garbageBagX50 > 0) {garbageBags[TrashModels.bagx50] = garbageBagX50}
     
     
     
     var garbageBagX10 = TrashMass * ratioX10
     garbageBagX10 = (garbageBagX10) * (1/10)
     garbageBagX10 = Float(Int(garbageBagX10))
-    if (garbageBagX50 > 0) {garbageBags["garbageBagX10"] = garbageBagX10}
+    if (garbageBagX10 > 0) {garbageBags[TrashModels.bagx10] = garbageBagX10}
     
     
     var garbageBagX5 = TrashMass * ratioX5
     garbageBagX5 = (garbageBagX5) * (1/5)
     garbageBagX5 = Float(Int(garbageBagX5))
-    if (garbageBagX50 > 0) {garbageBags["garbageBagX5"] = garbageBagX5}
+    if (garbageBagX5 > 0) {garbageBags[TrashModels.bagx5] = garbageBagX5}
     
     
     var garbageBagX1 = TrashMass * ratioX1
     garbageBagX1 = Float(Int(garbageBagX1))
-    if (garbageBagX50 > 0) {garbageBags["garbageBagX1"] = garbageBagX1}
+    if (garbageBagX1 > 0) {garbageBags[TrashModels.bagx1] = garbageBagX1}
     
     
-    var canAndBag = TrashMass * ratioCanAndBag
-    canAndBag = Float(Int(canAndBag))
-    if (garbageBagX50 > 0) {garbageBags["canAndBag"] = canAndBag}
-    
-    
-    
-    
+    var canAndBottle = TrashMass * ratioCanAndBag
+    canAndBottle = Float(Int(canAndBottle))
+    if (canAndBottle > 0) {
+        garbageBags[TrashModels.can] = canAndBottle / 2
+        
+        garbageBags[TrashModels.bottle] = canAndBottle / 2
+        
+    }
     
     
     return garbageBags
     
 }
 
-func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: String) -> [String: Float]{
+func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: Time) -> [TrashModels: Float]{
     
-    var garbageBags = [String:Float]()
+    var garbageBags = [TrashModels:Float]()
     let higherTrash =  TrashPlanes.max()!
-    var statusCode: String = timeLapse
+    
     for TrashPlane in TrashPlanes{
         if (TrashPlane == higherTrash){
             
-            switch statusCode {
-            case "days":
+            switch timeLapse {
+            case .day:
                 garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: (3/4), ratioX1: (3/16), ratioCanAndBag: (1/16))
-            case "month":
+            case .month:
                 garbageBags = garbageRatio(TrashMass: TrashPlane, ratioX50: (7/8), ratioX10: (3/32), ratioX5: (1/32), ratioX1: 0, ratioCanAndBag: 1/256)
-            case "years":
+            case .year:
                 var TempTrashPlane = TrashPlane / 4
                 garbageBags = garbageRatio(TrashMass: TempTrashPlane, ratioX50: 1, ratioX10: 0, ratioX5: 0, ratioX1: 0, ratioCanAndBag: 0)
-            default:
-                assert(true, "Missing Case")
+           
             }
             
         }else{
             
-            switch statusCode {
-            case "days":
+            switch timeLapse {
+            case .day:
                 garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: (3/8), ratioX1: (3/8), ratioCanAndBag: 2/8)
-            case "month":
+            case .month:
                 garbageBags = garbageRatio(TrashMass: TrashPlane, ratioX50: (10/16), ratioX10: (5/16), ratioX5: (3/64), ratioX1: (1/64), ratioCanAndBag: 0)
-            case "years":
+            case .year:
                 var TempTrashPlane = TrashPlane / 4
                 garbageBags = garbageRatio(TrashMass: TempTrashPlane, ratioX50: 7/8, ratioX10: 1/8, ratioX5: 0, ratioX1: 0, ratioCanAndBag: 0)
-            default:
-                assert(true, "Missing Case")
-                
-                
                 
             }
         }
