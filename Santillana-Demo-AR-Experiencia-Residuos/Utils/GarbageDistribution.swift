@@ -38,9 +38,9 @@ func garbageRatio(TrashMass: Float,ratioX50: Float, ratioX10: Float, ratioX5: Fl
     var canAndBottle = TrashMass * ratioCanAndBag
     canAndBottle = Float(Int(canAndBottle))
     if (canAndBottle > 0) {
-        garbageBags[TrashModels.can] = canAndBottle / 2
+        garbageBags[TrashModels.can] = canAndBottle
         
-        garbageBags[TrashModels.bottle] = canAndBottle / 2
+        garbageBags[TrashModels.bottle] = canAndBottle
         
     }
     
@@ -49,17 +49,19 @@ func garbageRatio(TrashMass: Float,ratioX50: Float, ratioX10: Float, ratioX5: Fl
     
 }
 
-func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: Time) -> [TrashModels: Float]{
+func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: Time) -> [[TrashModels: Float]]{
     
-    var garbageBags = [TrashModels:Float]()
+    
+    var modelsPerPlane = [[TrashModels:Float]]()
     let higherTrash =  TrashPlanes.max()!
     
     for TrashPlane in TrashPlanes{
+        var garbageBags = [TrashModels:Float]()
         if (TrashPlane == higherTrash){
             
             switch timeLapse {
             case .day:
-                garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: (3/4), ratioX1: (3/16), ratioCanAndBag: (1/16))
+                garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: 0, ratioX1: (3/4), ratioCanAndBag: (1/4))
             case .month:
                 garbageBags = garbageRatio(TrashMass: TrashPlane, ratioX50: (7/8), ratioX10: (3/32), ratioX5: (1/32), ratioX1: 0, ratioCanAndBag: 1/256)
             case .year:
@@ -72,7 +74,7 @@ func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: Time) -> [TrashModel
             
             switch timeLapse {
             case .day:
-                garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: (3/8), ratioX1: (3/8), ratioCanAndBag: 2/8)
+                garbageBags = garbageRatio(TrashMass: TrashPlane , ratioX50: 0, ratioX10: 0, ratioX5: 0, ratioX1: (3/4), ratioCanAndBag: 2/4)
             case .month:
                 garbageBags = garbageRatio(TrashMass: TrashPlane, ratioX50: (10/16), ratioX10: (5/16), ratioX5: (3/64), ratioX1: (1/64), ratioCanAndBag: 0)
             case .year:
@@ -81,7 +83,9 @@ func garbageBagsInThePlane(TrashPlanes: [Float], timeLapse: Time) -> [TrashModel
                 
             }
         }
+        
+        modelsPerPlane.append(garbageBags)
     }
     
-    return garbageBags
+    return modelsPerPlane
 }

@@ -266,6 +266,19 @@ class ARSceneViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             self.actionButton.view.isHidden = false
         }
+        
+        let totalTrash = calculateTotalTrash(days: timeSelected.timeInDays, trashPerDay: trash.quantity)
+        
+        let planePercentage = areaDistribution(Planes: debugPlanes)
+        
+        var trashPerPlane = [Float]()
+        
+        for percentage in planePercentage {
+            trashPerPlane.append(totalTrash * percentage)
+        }
+        
+        var modelsPerPlane = garbageBagsInThePlane(TrashPlanes: trashPerPlane, timeLapse: timeSelected.timeLapse)
+        
         setTrashInformation()
         
     }
