@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupOptions()
+        title = "Selecciona tu grado"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,12 +27,15 @@ class ViewController: UIViewController {
     
     func setupOptions(){
         let primariaOption = GradientLabelViewCotroller(text: "Primaria", gradientColors: [UIColor.Santillana.red.cgColor, UIColor.Santillana.orange.cgColor])
+        primariaOption.view.tag = 0
         addChild(primariaOption)
         
         let secundariaOption = GradientLabelViewCotroller(text: "Secundaria", gradientColors: [UIColor.Santillana.purple.cgColor, UIColor.Santillana.blue.cgColor])
+        secundariaOption.view.tag = 1
         addChild(secundariaOption)
 
         let bachilleratoOption = GradientLabelViewCotroller(text: "Bachillerato", gradientColors: [UIColor.Santillana.green.cgColor, UIColor.Santillana.blue.cgColor])
+        bachilleratoOption.view.tag = 2
         addChild(bachilleratoOption)
 
         selectableOptions = [primariaOption.view, secundariaOption.view, bachilleratoOption.view]   
@@ -38,36 +43,55 @@ class ViewController: UIViewController {
     
     func setupUI(){
         
-        for option in selectableOptions! {
-            view.addSubview(option)
-        }
+        let labelsYCoordinate = view.center.y
+        let sidePadding: CGFloat = 50
         
-        let bottomHeightConstant = -selectableOptions!.first!.frame.height * 2
+        let tapSecundaria = UITapGestureRecognizer(target: self, action: #selector(test(_:)))
+        tapSecundaria.name = "secundaria"
         
         let middleOption = selectableOptions![1]
-        middleOption.translatesAutoresizingMaskIntoConstraints = false
-
-        middleOption.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -middleOption.frame.width / 2).isActive = true
-        middleOption.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomHeightConstant).isActive = true
+        middleOption.addGestureRecognizer(tapSecundaria)
+        
+        view.addSubview(middleOption)
+        
+        middleOption.center = CGPoint(x: view.center.x, y: labelsYCoordinate)
+        
+        
+        let tapPrimaria = UITapGestureRecognizer(target: self, action: #selector(test(_:)))
+        tapPrimaria.name = "primaria"
         
         let leftOption = selectableOptions![0]
-        leftOption.translatesAutoresizingMaskIntoConstraints = false
+        leftOption.addGestureRecognizer(tapPrimaria)
         
-        leftOption.rightAnchor.constraint(equalTo: middleOption.leftAnchor, constant: -(leftOption.frame.width + 100)).isActive = true
-        leftOption.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomHeightConstant).isActive = true
+        view.addSubview(leftOption)
+        
+        let leftOptionXCoordinate =  leftOption.frame.width/2 + sidePadding
+        
+        leftOption.center = CGPoint(x: leftOptionXCoordinate, y: labelsYCoordinate)
+        
+        let tapBachillerato = UITapGestureRecognizer(target: self, action: #selector(test(_:)))
+        tapBachillerato.name = "bachillerato"
         
         let rightOption = selectableOptions![2]
-        rightOption.translatesAutoresizingMaskIntoConstraints = false
+        rightOption.addGestureRecognizer(tapBachillerato)
         
-        rightOption.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: bottomHeightConstant).isActive = true
-        rightOption.leftAnchor.constraint(equalTo: middleOption.rightAnchor, constant: (rightOption.frame.width + 50)).isActive = true
+        view.addSubview(rightOption)
         
+        let rightOptionXCoordinate = view.frame.width - rightOption.frame.width/2 - 30
         
-        
+        rightOption.center = CGPoint(x: rightOptionXCoordinate, y: labelsYCoordinate)
         
     }
     
-
+    
+    @objc func test(_ sender: UITapGestureRecognizer){
+        guard let name = sender.name else {return}
+        
+        if name == "primaria" {
+            let experienceVC = ExperiencesViewController()
+            navigationController?.pushViewController(experienceVC, animated: true)
+        }
+    }
     
     
 }
