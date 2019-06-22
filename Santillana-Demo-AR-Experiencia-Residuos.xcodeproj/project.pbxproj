@@ -25,6 +25,8 @@
 		D41187AC22AEC26100C46E75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41187AA22AEC26100C46E75 /* LaunchScreen.storyboard */; };
 		D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187B322AEC34300C46E75 /* ARSceneViewController.swift */; };
 		D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */; };
+		D443624822BD87C900FC9E8F /* ExperienceButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D443624722BD87C800FC9E8F /* ExperienceButtonViewController.swift */; };
+		D443624A22BD883A00FC9E8F /* ExperiencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D443624922BD883A00FC9E8F /* ExperiencesViewController.swift */; };
 		D493F85B22B33A4600AEBB43 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D4A4E93922B8063C007F5BDF /* UnitSuffixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */; };
 		D4A4E93C22B81C75007F5BDF /* ActionButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A4E93B22B81C75007F5BDF /* ActionButtonViewController.swift */; };
@@ -61,6 +63,8 @@
 		D41187AD22AEC26100C46E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41187B322AEC34300C46E75 /* ARSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSceneViewController.swift; sourceTree = "<group>"; };
 		D41187C122B0480A00C46E75 /* HorizontalPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPickerViewController.swift; sourceTree = "<group>"; };
+		D443624722BD87C800FC9E8F /* ExperienceButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExperienceButtonViewController.swift; sourceTree = "<group>"; };
+		D443624922BD883A00FC9E8F /* ExperiencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesViewController.swift; sourceTree = "<group>"; };
 		D4A4E93822B8063C007F5BDF /* UnitSuffixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSuffixes.swift; sourceTree = "<group>"; };
 		D4A4E93B22B81C75007F5BDF /* ActionButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonViewController.swift; sourceTree = "<group>"; };
 		D4A4E93D22B84591007F5BDF /* ARSceneViewController+HorizontalPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARSceneViewController+HorizontalPickerDelegate.swift"; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				D4A4E93A22B81C5B007F5BDF /* ActionButton */,
+				D443624622BD87C800FC9E8F /* ExperienceButton */,
 				D4C45EED22B42A8D001F5DAD /* AlertMessage */,
 				D4C45EE822B41D4A001F5DAD /* MessageLabel */,
 				D4EAF90F22B411870019A3B0 /* GradientButtons */,
@@ -113,6 +118,7 @@
 				D4E7776F22B181200038EF14 /* Utils */,
 				D41187A122AEC26000C46E75 /* AppDelegate.swift */,
 				D41187A322AEC26000C46E75 /* ViewController.swift */,
+				D443624922BD883A00FC9E8F /* ExperiencesViewController.swift */,
 				21C71E0C22B9893400ADCB28 /* Media.mp4 */,
 				D41187A522AEC26000C46E75 /* Main.storyboard */,
 				D41187A822AEC26100C46E75 /* Assets.xcassets */,
@@ -129,6 +135,14 @@
 				2160FB9022BC1AEA00310BF2 /* ModelNode.swift */,
 			);
 			path = "Santillana-Demo-AR-Experiencia-Residuos";
+			sourceTree = "<group>";
+		};
+		D443624622BD87C800FC9E8F /* ExperienceButton */ = {
+			isa = PBXGroup;
+			children = (
+				D443624722BD87C800FC9E8F /* ExperienceButtonViewController.swift */,
+			);
+			path = ExperienceButton;
 			sourceTree = "<group>";
 		};
 		D4A4E93A22B81C5B007F5BDF /* ActionButton */ = {
@@ -277,7 +291,9 @@
 				D4E7777122B181330038EF14 /* Colors.swift in Sources */,
 				D41187B422AEC34300C46E75 /* ARSceneViewController.swift in Sources */,
 				21FE258D22B4219B004DFA36 /* TimeInformation.swift in Sources */,
+				D443624A22BD883A00FC9E8F /* ExperiencesViewController.swift in Sources */,
 				D41187C222B0480A00C46E75 /* HorizontalPickerViewController.swift in Sources */,
+				D443624822BD87C900FC9E8F /* ExperienceButtonViewController.swift in Sources */,
 				690E2A8922BD501B00498FE3 /* GarbageDistribution.swift in Sources */,
 				21FE258F22B4265C004DFA36 /* TrashInformation.swift in Sources */,
 				D4EAF91322B411AB0019A3B0 /* Enumerators.swift in Sources */,
